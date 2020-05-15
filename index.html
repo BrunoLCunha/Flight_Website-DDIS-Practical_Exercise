@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Flight Website</title>
+        <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-auth.js"></script>
+    </head>
+    <body>
+        <h1>Flight Website</h1>
+        <button onclick="mainApp.logOut()">logOut</button>
+        <div>
+            <h2>CRUD</h2>
+            <div>
+                <button onclick="mainApp.Create()">Create</button>
+                <button onclick="mainApp.Read()">Read</button>
+                <button onclick="mainApp.Update()">Update</button>
+                <button onclick="mainApp.Delete()">Delete</button>
+            </div>
+        </div>
+        <script src="firebase.js"></script>
+        <script src="main.js"></script>
+    </body>
+</html>
