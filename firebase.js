@@ -20,11 +20,23 @@ var app_fireBase = {};
       if(!path || !body) return;
       app_fireBase.database().ref(path).set(body, callBack);
   }
+  function fnUpdate(path, body, callBack){
+    if(!path || !body) return;
+    app_fireBase.database().ref(path).update(body, callBack);
+  }
+  function fnDelete(path, callBack){
+    if(!path) return;
+    app_fireBase.database().ref(path).remove(callBack);
+  }
+  function fnRead(path, sucessFunction, errorFunction){
+    if(!path || !sucessFunction || !errorFunction) return;
+    app_fireBase.database().ref(path).once('value').then(sucessFunction, errorFunction);
+  }
 
   app_fireBase.databaseApi = {
       create: fnCreate,
-      //read: fnRead,
-      //update: fnUpdate,
-      //delete: fnDelete
+      read: fnRead,
+      update: fnUpdate,
+      delete: fnDelete
   }
 })()
