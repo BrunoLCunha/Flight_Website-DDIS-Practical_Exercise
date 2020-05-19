@@ -1,0 +1,16 @@
+{
+  /* Visit https://firebase.google.com/docs/database/security to learn more about security rules. */
+  "rules": {
+    "users": {
+      "$uid": {
+        ".read" : "auth !== null && auth.uid === $uid",
+        ".write": "auth !== null && auth.uid === $uid",
+        ".validate" : "newData.hasChildren(['name', 'age', 'message'])",
+        "name" : {".validate" : "newData.isString() && newData.val().length > 0 && newData.val().length < 30"},
+        "age" : {".validate" : "newData.isNumber() && newData.val() > 0 && newData.val() < 100"},
+        "message" :   {".validate" : "newData.isString() && newData.val().length > 0 && newData.val().length < 300"},
+        "&others" : {".validate" : false}
+      }
+    }
+  }
+}
