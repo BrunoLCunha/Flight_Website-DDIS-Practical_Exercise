@@ -14,3 +14,5 @@ class App extends Component{
 }
 
 export default App;
+
+// https://medium.com/reprogramabr/configura%C3%A7%C3%B5es-iniciais-do-firebase-realtime-database-com-reactjs-f76141eed5d9

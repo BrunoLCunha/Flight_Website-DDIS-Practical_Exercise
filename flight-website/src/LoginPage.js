@@ -8,7 +8,9 @@ class LoginPage extends Component{
         super(props)
 
         this.state = {
-            uid: null
+            uid: null,
+            email: null,
+            password: null
         }
     }
 
@@ -34,11 +36,8 @@ class LoginPage extends Component{
             //     var credential = error.credential;
             //     // ...
             //   });
-            
-            let email = 'renan.ernesto@usp.br'
-            let password = '123456'
 
-            firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+            firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password).catch(function(error) {
                 // Handle Errors here.
                 var errorCode = error.code;
                 var errorMessage = error.message;
@@ -75,6 +74,18 @@ class LoginPage extends Component{
                 <div>
                     <h1>Login</h1>
                     <div id="firebaseui-auth-container"></div>
+                    <div>
+                    <label>
+                    Email: 
+                    <input type="text" value={this.state.email} onChange={e => this.setState({email: e.target.value})} />
+                    </label>
+                    </div>
+                    <div>
+                    <label>
+                    Senha: 
+                    <input type="text" value={this.state.password} onChange={e => this.setState({password: e.target.value})} />
+                    </label>
+                    </div>
                     <button onClick={(e) => login()}>Sign In</button>
                     <script src='login.js'></script>
                 </div>
