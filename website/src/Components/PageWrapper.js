@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import CommentsSection from './CommentsSection';
 import BlogSection from './BlogSection';
+import FooterSection from './FooterSection';
 
 class PageWrapper extends Component {
     render(){
@@ -36,8 +37,10 @@ class PageWrapper extends Component {
                         </div>
                     </div>
                 </header>
+            
             <BlogSection />
             <CommentsSection />
+            <FooterSection />
             </div>
             </div>
         )
