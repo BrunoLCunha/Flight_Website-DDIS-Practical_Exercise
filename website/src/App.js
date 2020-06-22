@@ -1,12 +1,15 @@
 import React, {Component} from 'react';
 import './App.css';
 import LoginPage from './LoginPage';
+import PageWrapper from './Components/PageWrapper';
+
 
 class App extends Component{
   render(){
     return(
       <div className="App">
         <LoginPage />
+        <PageWrapper />
       </div>
     )
   }
