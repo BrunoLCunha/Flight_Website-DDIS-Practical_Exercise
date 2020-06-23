@@ -1,5 +1,3 @@
-{/*componente que cria a row que mostra três imagens com efeito fade-in*/}
-
 import React, {Component} from 'react';
 
 class DestinationsRow extends Component {
