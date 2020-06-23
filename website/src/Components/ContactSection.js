@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Map, Marker, GoogleApiWrapper} from 'google-maps-react';
 
 class ContactSection extends Component {
     render(){
@@ -50,7 +51,17 @@ class ContactSection extends Component {
 					</div>
 				</form>
 			</div>
-		</div>
+		 <div id="map"><Map google={this.props.google} zoom={15}
+                    initialCenter={{
+                        lat: -23.482323, 
+                        lng: -46.500503
+                    }}
+                /> </div>
+         </div>
         )
     }
 }
+
+export default GoogleApiWrapper({
+    apiKey: ('AIzaSyAcRC6B-u1eA41zjyHKzQtT053keo7QT78')
+   })(ContactSection);
