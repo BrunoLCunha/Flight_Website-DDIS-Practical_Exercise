@@ -7,13 +7,13 @@ class ContactSection extends Component {
             <div id="fh5co-contact" className="fh5co-section-gray">
 			<div className="container">
 				<div className="row">
-					<div className="col-md-8 col-md-offset-2 text-center heading-section animate-box">
+					<div >
 						<h3>Informação de Contato</h3>
 						<p>Site construído pelo grupo 5 da turma 2020104 da matéria DSID.</p>
 					</div>
 				</div>
 				<form action="#">
-					<div className="row animate-box">
+					<div >
 						<div className="col-md-6">
 							<h3 className="section-title">Endereço</h3>
 							<p>Escola de Artes, Ciências e Humanidades da Universidade de São Paulo.</p>

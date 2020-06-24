@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import PageWrapper from './Components/PageWrapper';
-import Hotel from './Components/TourSection_Hotel';
 import * as serviceWorker from './serviceWorker';
 import App from './App';
 

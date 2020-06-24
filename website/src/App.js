@@ -15,7 +15,7 @@ import Foot from './Components/FooterSection';
 const App = () => {
   return (
     <Router>
-    <div>
+    <div id="fh5co-page">
      <NavBar/>
      <Route exact path="/" component={PageWrapper}/>
      <Route exact path="/hotel" component={Hotel}/>
