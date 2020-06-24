@@ -9,11 +9,14 @@ import TourSection_Vacation from './Components/TourSection_Vacation';
 import BlogSection from './Components/BlogSection';
 import ContactSection from './Components/ContactSection';
 import Hotel from './Components/TourSection_Hotel'
+import NavBar from './Components/Header';
+import Foot from './Components/FooterSection';
 
 const App = () => {
   return (
     <Router>
     <div>
+     <NavBar/>
      <Route exact path="/" component={PageWrapper}/>
      <Route exact path="/hotel" component={Hotel}/>
      <Route exact path="/flights" component={TourSection_Flight}/>
@@ -21,6 +24,7 @@ const App = () => {
      <Route exact path="/vacations" component={TourSection_Vacation}/>
      <Route exact path="/blog" component={BlogSection}/>
      <Route exact path="/contact" component={ContactSection}/>
+     <Foot/>
      </div>
    </Router>
   );

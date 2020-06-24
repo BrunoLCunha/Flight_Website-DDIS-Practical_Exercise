@@ -13,14 +13,12 @@ class PageWrapper extends Component {
         return(
             <div id="fh5co-wrapper">
             <div id="fh5co-page">
-            <Header />
             <HeroSection />
             <TourSection />
             <FeatureSection />
             <DestinationSection />
             <BlogSection />
             <CommentsSection />
-            <FooterSection />
             </div>
             </div>
         )
