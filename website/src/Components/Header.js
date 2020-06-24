@@ -23,7 +23,7 @@ class Header extends Component {
                                         <li><a href="#">Django &amp; Python</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="/flight">Flights</a></li>
+                                <li><a href="/flights">Flights</a></li>
                                 <li><a href="/hotel">Hotel</a></li>
                                 <li><a href="/car">Car</a></li>
                                 <li><a href="/blog">Blog</a></li>
