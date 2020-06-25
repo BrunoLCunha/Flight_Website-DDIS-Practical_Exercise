@@ -14,7 +14,7 @@ class Header extends Component {
                             <ul className="sf-menu" id="fh5co-primary-menu">
                                 <li className="active"><a href="/">Home</a></li>
                                 <li>
-                                    <a href="/vacations" className="fh5co-sub-ddown">Vacations</a>
+                                    <a href="/vacations" className="fh5co-sub-ddown">Viagens</a>
                                     <ul className="fh5co-sub-menu">
                                         <li><a href="#">Family</a></li>
                                         <li><a href="#">CSS3 &amp; HTML5</a></li>
@@ -23,11 +23,11 @@ class Header extends Component {
                                         <li><a href="#">Django &amp; Python</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="/flights">Flights</a></li>
-                                <li><a href="/hotel">Hotel</a></li>
-                                <li><a href="/car">Car</a></li>
+                                <li><a href="/flights">Vôos</a></li>
+                                <li><a href="/hotel">Hotéis</a></li>
+                                <li><a href="/car">Carros</a></li>
                                 <li><a href="/blog">Blog</a></li>
-                                <li><a href="/contact">Contact</a></li>
+                                <li><a href="/contact">Contato</a></li>
                             </ul>
                         </nav>
                     </div>
