@@ -1,7 +1,47 @@
 import React, {Component} from 'react';
 
 class HeroSection extends Component {
+
+	constructor(props) {
+		super(props)
+
+		this.state = {
+			from: '',
+			to: ''
+		}
+	}
+
     render() {
+
+		let search = (e) => {
+			this.setState({from: e.target.value})
+
+			let country = 'BR';
+			let currency = 'BRL';
+			let locale = 'pt-br';
+			let from = 'GRU-sky'; // aeroporto guarulhos PS. tem uma api de locais, coloca o estado e saem os aeroportos.
+			let to = 'CWB-sky'; // um aeroporto de curitiba
+			let outboundpartialdate = 'anytime'; //data de saida formato 2020-12-31
+			let inboundpartialdate = 'anytime'; //data de chegada
+
+			let url = 'https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsedates/v1.0/' +
+						country + '/' + currency + '/' + locale + '/' + from + '/' + to + '/' + outboundpartialdate +
+						'?inboundpartialdate=' + inboundpartialdate; 
+
+			fetch( url, 
+				{
+					headers: {
+						"x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
+						"x-rapidapi-key": "dba8c31e4amsha008db228d6ac1cp115817jsn47d0d202cb68",
+						"useQueryString": true
+					}
+				})  
+				.then(function(res) {
+					//return res.json();
+					console.log(res.json());
+				})
+		}
+
         return(
             <div className="fh5co-hero">
 			<div className="fh5co-overlay"></div>
@@ -32,13 +72,29 @@ class HeroSection extends Component {
 											<div className="col-xxs-12 col-xs-6 mt">
 												<div className="input-field">
 													<label htmlFor="from">From:</label>
-													<input type="text" className="form-control" id="from-place" placeholder="Los Angeles, USA"/>
+													<input 
+														type="text" 
+														className="form-control" 
+														id="from-place" 
+														placeholder="Sao Paulo"
+														required="required" 
+														data-validation-required-message="Please enter your departure origin" 
+														value={this.state.from}
+														onChange={(e) => search(e)}
+													/>
 												</div>
 											</div>
 											<div className="col-xxs-12 col-xs-6 mt">
 												<div className="input-field">
 													<label htmlFor="from">To:</label>
-													<input type="text" className="form-control" id="to-place" placeholder="Tokyo, Japan"/>
+													<input 
+														type="text" 
+														className="form-control" 
+														id="to-place" 
+														placeholder="Curitiba"
+														value={this.state.to}
+														onChange={(e) => this.setState({to: e.target.value})}
+													/>
 												</div>
 											</div>
 											<div className="col-xxs-12 col-xs-6 mt alternate">
