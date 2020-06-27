@@ -8,11 +8,11 @@ class Header extends Component {
                 <div className="container">
                     <div className="nav-header">
                         <a href="#" className="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
-                        <h1 id="fh5co-logo"><a href="/"><i className="icon-airplane"></i>Travel</a></h1>
+                        <h1 id="fh5co-logo"><a href="/"><i className="icon-airplane"></i>DSIDESTINOS</a></h1>
                         {/*<!-- START #fh5co-menu-wrap -->*/}
                         <nav id="fh5co-menu-wrap" role="navigation">
                             <ul className="sf-menu" id="fh5co-primary-menu">
-                                <li className="active"><a href="/">Home</a></li>
+                                <li className="active"><a href="/">Menu</a></li>
                                 <li>
                                     <a href="/vacations" className="fh5co-sub-ddown">Viagens</a>
                                     <ul className="fh5co-sub-menu">
