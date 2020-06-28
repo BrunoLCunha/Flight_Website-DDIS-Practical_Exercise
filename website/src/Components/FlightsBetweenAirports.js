@@ -34,7 +34,8 @@ class FlightsBetweenAirports extends Component {
         }
     
         if (this.state.error) {
-            return <div>{this.state.error}</div>;
+            // console.log(this.state.error)
+            // return <div>{this.state.error}</div>;
         }
 
         if(!this.state.dataAPI.Quotes) {
@@ -44,12 +45,12 @@ class FlightsBetweenAirports extends Component {
         return (
             this.state.dataAPI.Quotes.map((quote, i) => {
                 return <Flight
-                            from = {this.state.dataAPI.Places[1].IataCode}
-                            to = {this.state.dataAPI.Places[0].IataCode}
+                            from = {this.state.dataAPI.Places.find(elem => elem.PlaceId == quote.OutboundLeg.OriginId).IataCode}
+                            to = {this.state.dataAPI.Places.find(elem => elem.PlaceId == quote.OutboundLeg.DestinationId).IataCode}
                             dateGo = {new Date((quote.OutboundLeg.DepartureDate+'Z')).toUTCString().replace(' 00:00:00 GMT','')}
-                            carryGo = {this.state.dataAPI.Carriers.find(elem => elem.CarrierId = quote.OutboundLeg.CarrierIds[0]).Name}
+                            carryGo = {this.state.dataAPI.Carriers.find(elem => elem.CarrierId == quote.OutboundLeg.CarrierIds[0]).Name}
                             dateBack = {quote.InboundLeg ? new Date((quote.InboundLeg.DepartureDate+'Z')).toUTCString().replace(' 00:00:00 GMT','') : null}
-                            carryBack = {quote.InboundLeg ? this.state.dataAPI.Carriers.find(elem => elem.CarrierId = quote.InboundLeg.CarrierIds[0]).Name : null}
+                            carryBack = {quote.InboundLeg ? this.state.dataAPI.Carriers.find(elem => elem.CarrierId == quote.InboundLeg.CarrierIds[0]).Name : null}
                             price = {this.state.dataAPI.Currencies[0].Symbol + ' ' + parseFloat(quote.MinPrice).toFixed(2)}
                             key={i}
                         />
