@@ -41,7 +41,6 @@ class FlightsBetweenAirports extends Component {
         if(!this.state.dataAPI.Quotes) {
             return null
         }
-
         return (
             this.state.dataAPI.Quotes.map((quote, i) => {
                 return <Flight

@@ -47,13 +47,25 @@ class FlightsBetweenCities extends Component {
         if (this.state.error) {
             return <div>{this.state.error}</div>;
         }
+        if (!this.state.dataFrom || !this.state.dataTo) {
+            return <div>Limite de requests à API atingido, por favor tente novamente daqui um minuto</div>
+        }
+        // restriction from API, (too many requests)
+        let PlacesFrom = []
+        let PlacesTo = []
+        for(let i = 0; i < Math.min(3 , this.state.dataFrom.Places.length); i++) {
+            PlacesFrom.push(this.state.dataFrom.Places[i])
+        }
+        for(let i = 0; i < Math.min(3 , this.state.dataTo.Places.length); i++) {
+            PlacesTo.push(this.state.dataTo.Places[i])
+        }
 
         return (
             <div id="fh5co-tours" className="fh5co-section-gray">
 			<div className="container">
                 <div className="row">
-                    {this.state.dataFrom.Places.map((aptFrom, i) => {
-                        return this.state.dataTo.Places.map((aptTo, j) => {
+                    {PlacesFrom.map((aptFrom, i) => {
+                        return PlacesTo.map((aptTo, j) => {
                             return <FlightsBetweenAirports 
                                         rapidCredentials={this.props.rapidCredentials}
                                         country={this.props.country} 
