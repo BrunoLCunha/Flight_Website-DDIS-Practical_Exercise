@@ -1,9 +1,5 @@
 import React, {Component} from 'react';
-<<<<<<< HEAD
-import {Map, Marker, GoogleApiWrapper} from 'google-maps-react';
-=======
 import { Redirect } from 'react-router';
->>>>>>> 950b3d5ef0fa51986da9116bdd828be66974a44d
 
 class HeroSection extends Component {
 
@@ -19,7 +15,6 @@ class HeroSection extends Component {
 		}
 	}
 
-<<<<<<< HEAD
 	componentDidMount() {
 		window.placeSearch({
 			key: 'AnXghgF4e4yW5GdvGL98x0v6MsoXeA3A',
@@ -50,31 +45,16 @@ class HeroSection extends Component {
 			container: document.querySelector('#to-place_pk'),
 			collection: ['adminArea']
 		  });
-	  }
+	}
 
-    render() {
-
-		let search = (e) => {
-			this.setState({from: e.target.value})
-			let country = 'BR';
-			let currency = 'BRL';
-			let locale = 'pt-br';
-			let from = 'GRU-sky'; // aeroporto guarulhos PS. tem uma api de locais, coloca o estado e saem os aeroportos.
-			let to = 'CWB-sky'; // um aeroporto de curitiba
-			let outboundpartialdate = 'anytime'; //data de saida formato 2020-12-31
-			let inboundpartialdate = 'anytime'; //data de chegada
-
-			let url = 'https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsedates/v1.0/' +
-						country + '/' + currency + '/' + locale + '/' + from + '/' + to + '/' + outboundpartialdate +
-						'?inboundpartialdate=' + inboundpartialdate; 
-=======
 	search = (e) => {
 		e.preventDefault();
 		this.setState({redirect: true})
 	}
->>>>>>> 950b3d5ef0fa51986da9116bdd828be66974a44d
 
     render() {
+
+	
 		if (this.state.redirect) {
 			return	<Redirect to={{pathname: '/flights-result', state: {from: this.state.from, 
 																		to: this.state.to, 
@@ -107,50 +87,19 @@ class HeroSection extends Component {
 											<a href="#packages" aria-controls="packages" role="tab" data-toggle="tab">Packages</a>
 										</li>
 									</ul>
+									
 
-<<<<<<< HEAD
-								    {/*Tab panes*/}
-									<div className="tab-content">
-									 <div role="tabpanel" className="tab-pane active" id="flights">
-										<div className="row">
-										<div className="col-xxs-12 col-xs-12 mt">	
-												<div className="input-field">
-													<label htmlFor="from">From:</label>
-													<input 
-														type="text" 
-														className="form-control" 
-														id="from-place_0" 
-														placeholder="Sao Paulo"
-														required="required" 
-														data-validation-required-message="Please enter your departure origin" 
-														value={this.state.from}
-														onChange={(e) => search(e)}
-													/>
-												</div>
-											</div>
-											<div className="col-xxs-12 col-xs-12 mt">
-												<div className="input-field">
-													<label htmlFor="from">To:</label>
-													<input 
-														type="text" 
-														className="form-control" 
-														id="to-place_0" 
-														placeholder="Curitiba"
-														value={this.state.to}
-														onChange={(e) => this.setState({to: e.target.value})}
-													/>
-=======
 										{/*Tab panes*/}
 										<div className="tab-content">
 										<div role="tabpanel" className="tab-pane active" id="flights">
 											<div className="row">
-												<div className="col-xxs-12 col-xs-6 mt">
+												<div className="col-xxs-12 col-xs-12 mt">
 													<div className="input-field">
 														<label htmlFor="from">From:</label>
 														<input 
 															type="text" 
 															className="form-control" 
-															id="from-place" 
+															id="place-search-input" 
 															placeholder="Sao Paulo"
 															required="required" 
 															data-validation-required-message="Please enter your departure origin" 
@@ -159,19 +108,18 @@ class HeroSection extends Component {
 														/>
 													</div>
 												</div>
-												<div className="col-xxs-12 col-xs-6 mt">
+												<div className="col-xxs-12 col-xs-12 mt">
 													<div className="input-field">
 														<label htmlFor="from">To:</label>
 														<input 
 															type="text" 
 															className="form-control" 
-															id="to-place" 
+															id="from-place_0" 
 															placeholder="Curitiba"
 															value={this.state.to}
 															onChange={(e) => this.setState({to: e.target.value})}
 														/>
 													</div>
->>>>>>> 950b3d5ef0fa51986da9116bdd828be66974a44d
 												</div>
 												<div className="col-xxs-12 col-xs-6 mt alternate">
 													<div className="input-field">
@@ -240,22 +188,13 @@ class HeroSection extends Component {
 											</div>
 										</div>
 
-<<<<<<< HEAD
-									 <div role="tabpanel" className="tab-pane" id="hotels">
-									 	<div className="row">
-											<div className="col-xxs-12 col-xs-12 mt">
-												<div className="input-field">
-													<label htmlFor="from">City:</label>
-													<input type="text" className="form-control" id="place-search-input" placeholder="Los Angeles, USA"/>
-=======
 										<div role="tabpanel" className="tab-pane" id="hotels">
 											<div className="row">
 												<div className="col-xxs-12 col-xs-12 mt">
 													<div className="input-field">
 														<label htmlFor="from">City:</label>
-														<input type="text" className="form-control" id="from-place" placeholder="Los Angeles, USA"/>
+														<input type="text" className="form-control" id="to-place_0" placeholder="Los Angeles, USA"/>
 													</div>
->>>>>>> 950b3d5ef0fa51986da9116bdd828be66974a44d
 												</div>
 												<div className="col-xxs-12 col-xs-6 mt alternate">
 													<div className="input-field">
@@ -310,34 +249,19 @@ class HeroSection extends Component {
 											</div>
 										</div>
 
-<<<<<<< HEAD
-									 <div role="tabpanel" className="tab-pane" id="packages">
-									 	<div className="row">
-										 <div className="col-xxs-12 col-xs-12 mt">
-												<div className="input-field">
-													<label htmlFor="from">City:</label>
-													<input type="text" className="form-control" id="from-place_pk" placeholder="Los Angeles, USA"/>
-												</div>
-											</div>
-											<div className="col-xxs-12 col-xs-12 mt">
-												<div className="input-field">
-													<label htmlFor="from">Destination:</label>
-													<input type="text" className="form-control" id="to-place_pk" placeholder="Tokyo, Japan"/>
-=======
 										<div role="tabpanel" className="tab-pane" id="packages">
 											<div className="row">
 												<div className="col-xxs-12 col-xs-6 mt">
 													<div className="input-field">
 														<label htmlFor="from">City:</label>
-														<input type="text" className="form-control" id="from-place" placeholder="Los Angeles, USA"/>
+														<input type="text" className="form-control" id="from-place_pk" placeholder="Los Angeles, USA"/>
 													</div>
 												</div>
 												<div className="col-xxs-12 col-xs-6 mt">
 													<div className="input-field">
 														<label htmlFor="from">Destination:</label>
-														<input type="text" className="form-control" id="to-place" placeholder="Tokyo, Japan"/>
+														<input type="text" className="form-control" id="to-place_pk" placeholder="Tokyo, Japan"/>
 													</div>
->>>>>>> 950b3d5ef0fa51986da9116bdd828be66974a44d
 												</div>
 												<div className="col-xxs-12 col-xs-6 mt alternate">
 													<div className="input-field">
