@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Map, Marker, GoogleApiWrapper} from 'google-maps-react';
 
 class HeroSection extends Component {
 
@@ -11,11 +12,42 @@ class HeroSection extends Component {
 		}
 	}
 
+	componentDidMount() {
+		window.placeSearch({
+			key: 'AnXghgF4e4yW5GdvGL98x0v6MsoXeA3A',
+			container: document.querySelector('#place-search-input'),
+			collection: ['adminArea']
+		  });
+
+		  window.placeSearch({
+			key: 'AnXghgF4e4yW5GdvGL98x0v6MsoXeA3A',
+			container: document.querySelector('#from-place_0'),
+			collection: ['adminArea']
+		  });
+
+		  window.placeSearch({
+			key: 'AnXghgF4e4yW5GdvGL98x0v6MsoXeA3A',
+			container: document.querySelector('#to-place_0'),
+			collection: ['adminArea']
+		  });
+
+		  window.placeSearch({
+			key: 'AnXghgF4e4yW5GdvGL98x0v6MsoXeA3A',
+			container: document.querySelector('#from-place_pk'),
+			collection: ['adminArea']
+		  });
+
+		  window.placeSearch({
+			key: 'AnXghgF4e4yW5GdvGL98x0v6MsoXeA3A',
+			container: document.querySelector('#to-place_pk'),
+			collection: ['adminArea']
+		  });
+	  }
+
     render() {
 
 		let search = (e) => {
 			this.setState({from: e.target.value})
-
 			let country = 'BR';
 			let currency = 'BRL';
 			let locale = 'pt-br';
@@ -43,7 +75,9 @@ class HeroSection extends Component {
 		}
 
         return(
+			
             <div className="fh5co-hero">
+			<script src="https://api.mqcdn.com/sdk/place-search-js/v1.0.0/place-search.js"></script>
 			<div className="fh5co-overlay"></div>
 			<div className="fh5co-cover" data-stellar-background-ratio="0.5" style={{backgroundImage: "%PUBLIC_URL%/images/cover_bg_1.jpg"}}>
 				<div className="desc">
@@ -69,13 +103,13 @@ class HeroSection extends Component {
 									<div className="tab-content">
 									 <div role="tabpanel" className="tab-pane active" id="flights">
 										<div className="row">
-											<div className="col-xxs-12 col-xs-6 mt">
+										<div className="col-xxs-12 col-xs-12 mt">	
 												<div className="input-field">
 													<label htmlFor="from">From:</label>
 													<input 
 														type="text" 
 														className="form-control" 
-														id="from-place" 
+														id="from-place_0" 
 														placeholder="Sao Paulo"
 														required="required" 
 														data-validation-required-message="Please enter your departure origin" 
@@ -84,13 +118,13 @@ class HeroSection extends Component {
 													/>
 												</div>
 											</div>
-											<div className="col-xxs-12 col-xs-6 mt">
+											<div className="col-xxs-12 col-xs-12 mt">
 												<div className="input-field">
 													<label htmlFor="from">To:</label>
 													<input 
 														type="text" 
 														className="form-control" 
-														id="to-place" 
+														id="to-place_0" 
 														placeholder="Curitiba"
 														value={this.state.to}
 														onChange={(e) => this.setState({to: e.target.value})}
@@ -155,7 +189,7 @@ class HeroSection extends Component {
 											<div className="col-xxs-12 col-xs-12 mt">
 												<div className="input-field">
 													<label htmlFor="from">City:</label>
-													<input type="text" className="form-control" id="from-place" placeholder="Los Angeles, USA"/>
+													<input type="text" className="form-control" id="place-search-input" placeholder="Los Angeles, USA"/>
 												</div>
 											</div>
 											<div className="col-xxs-12 col-xs-6 mt alternate">
@@ -213,16 +247,16 @@ class HeroSection extends Component {
 
 									 <div role="tabpanel" className="tab-pane" id="packages">
 									 	<div className="row">
-											<div className="col-xxs-12 col-xs-6 mt">
+										 <div className="col-xxs-12 col-xs-12 mt">
 												<div className="input-field">
 													<label htmlFor="from">City:</label>
-													<input type="text" className="form-control" id="from-place" placeholder="Los Angeles, USA"/>
+													<input type="text" className="form-control" id="from-place_pk" placeholder="Los Angeles, USA"/>
 												</div>
 											</div>
-											<div className="col-xxs-12 col-xs-6 mt">
+											<div className="col-xxs-12 col-xs-12 mt">
 												<div className="input-field">
 													<label htmlFor="from">Destination:</label>
-													<input type="text" className="form-control" id="to-place" placeholder="Tokyo, Japan"/>
+													<input type="text" className="form-control" id="to-place_pk" placeholder="Tokyo, Japan"/>
 												</div>
 											</div>
 											<div className="col-xxs-12 col-xs-6 mt alternate">
