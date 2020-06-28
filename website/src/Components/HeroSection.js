@@ -102,9 +102,8 @@ class HeroSection extends Component {
 															id="place-search-input" 
 															placeholder="Sao Paulo"
 															required="required" 
-															data-validation-required-message="Please enter your departure origin" 
-															value={this.state.from}
-															onChange={(e) => this.setState({from: e.target.value})}
+															data-validation-required-message="Please enter your departure origin" 													
+															onInput={(e) => this.setState({from: e.target.value})}
 														/>
 													</div>
 												</div>
@@ -115,9 +114,8 @@ class HeroSection extends Component {
 															type="text" 
 															className="form-control" 
 															id="from-place_0" 
-															placeholder="Curitiba"
-															value={this.state.to}
-															onChange={(e) => this.setState({to: e.target.value})}
+															placeholder="Curitiba"															
+															onInput={(e) => this.setState({to: e.target.value})}
 														/>
 													</div>
 												</div>
