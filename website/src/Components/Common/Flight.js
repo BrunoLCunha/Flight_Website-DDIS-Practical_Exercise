@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 class Flight extends Component {
     render() {
         return (
-            <a href="#" className="flight-book" style={{margin: 10}}>
+            <a href="/" className="flight-book" style={{margin: 10}}>
                 <div className="plane-name">
                     <span className="p-flight">{this.props.carryGo}</span>
                 </div>
