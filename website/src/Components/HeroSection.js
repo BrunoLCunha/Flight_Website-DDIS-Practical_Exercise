@@ -1,5 +1,9 @@
 import React, {Component} from 'react';
+<<<<<<< HEAD
 import {Map, Marker, GoogleApiWrapper} from 'google-maps-react';
+=======
+import { Redirect } from 'react-router';
+>>>>>>> 950b3d5ef0fa51986da9116bdd828be66974a44d
 
 class HeroSection extends Component {
 
@@ -8,10 +12,14 @@ class HeroSection extends Component {
 
 		this.state = {
 			from: '',
-			to: ''
+			to: '',
+			dateGo: '',
+			dateBack: '',
+			redirect: false
 		}
 	}
 
+<<<<<<< HEAD
 	componentDidMount() {
 		window.placeSearch({
 			key: 'AnXghgF4e4yW5GdvGL98x0v6MsoXeA3A',
@@ -59,21 +67,21 @@ class HeroSection extends Component {
 			let url = 'https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsedates/v1.0/' +
 						country + '/' + currency + '/' + locale + '/' + from + '/' + to + '/' + outboundpartialdate +
 						'?inboundpartialdate=' + inboundpartialdate; 
+=======
+	search = (e) => {
+		e.preventDefault();
+		this.setState({redirect: true})
+	}
+>>>>>>> 950b3d5ef0fa51986da9116bdd828be66974a44d
 
-			fetch( url, 
-				{
-					headers: {
-						"x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
-						"x-rapidapi-key": "dba8c31e4amsha008db228d6ac1cp115817jsn47d0d202cb68",
-						"useQueryString": true
-					}
-				})  
-				.then(function(res) {
-					//return res.json();
-					console.log(res.json());
-				})
+    render() {
+		if (this.state.redirect) {
+			return	<Redirect to={{pathname: '/flights-result', state: {from: this.state.from, 
+																		to: this.state.to, 
+																		dateGo: this.state.dateGo ? this.state.dateGo : 'anytime',
+																		dateBack: this.state.dateBack ? this.state.dateBack : 'anytime',
+																		}}} />
 		}
-
         return(
 			
             <div className="fh5co-hero">
@@ -84,21 +92,23 @@ class HeroSection extends Component {
 					<div className="container">
 						<div className="row">
 							<div className="col-sm-5 col-md-5">
-								<div className="tabulation animate-box">
+									<form onSubmit={this.search}>
+									<div className="tabulation animate-box">
 
-								  {/*Nav tabs*/}
-								   <ul className="nav nav-tabs" role="tablist">
-								      <li role="presentation" className="active">
-								      	<a href="#flights" aria-controls="flights" role="tab" data-toggle="tab">Flights</a>
-								      </li>
-								      <li role="presentation">
-								    	   <a href="#hotels" aria-controls="hotels" role="tab" data-toggle="tab">Hotels</a>
-								      </li>
-								      <li role="presentation">
-								    	   <a href="#packages" aria-controls="packages" role="tab" data-toggle="tab">Packages</a>
-								      </li>
-								   </ul>
+									{/*Nav tabs*/}
+									<ul className="nav nav-tabs" role="tablist">
+										<li role="presentation" className="active">
+											<a href="#flights" aria-controls="flights" role="tab" data-toggle="tab">Flights</a>
+										</li>
+										<li role="presentation">
+											<a href="#hotels" aria-controls="hotels" role="tab" data-toggle="tab">Hotels</a>
+										</li>
+										<li role="presentation">
+											<a href="#packages" aria-controls="packages" role="tab" data-toggle="tab">Packages</a>
+										</li>
+									</ul>
 
+<<<<<<< HEAD
 								    {/*Tab panes*/}
 									<div className="tab-content">
 									 <div role="tabpanel" className="tab-pane active" id="flights">
@@ -129,122 +139,178 @@ class HeroSection extends Component {
 														value={this.state.to}
 														onChange={(e) => this.setState({to: e.target.value})}
 													/>
+=======
+										{/*Tab panes*/}
+										<div className="tab-content">
+										<div role="tabpanel" className="tab-pane active" id="flights">
+											<div className="row">
+												<div className="col-xxs-12 col-xs-6 mt">
+													<div className="input-field">
+														<label htmlFor="from">From:</label>
+														<input 
+															type="text" 
+															className="form-control" 
+															id="from-place" 
+															placeholder="Sao Paulo"
+															required="required" 
+															data-validation-required-message="Please enter your departure origin" 
+															value={this.state.from}
+															onChange={(e) => this.setState({from: e.target.value})}
+														/>
+													</div>
 												</div>
-											</div>
-											<div className="col-xxs-12 col-xs-6 mt alternate">
-												<div className="input-field">
-													<label htmlFor="date-start">Check In:</label>
-													<input type="text" className="form-control" id="date-start" placeholder="mm/dd/yyyy"/>
+												<div className="col-xxs-12 col-xs-6 mt">
+													<div className="input-field">
+														<label htmlFor="from">To:</label>
+														<input 
+															type="text" 
+															className="form-control" 
+															id="to-place" 
+															placeholder="Curitiba"
+															value={this.state.to}
+															onChange={(e) => this.setState({to: e.target.value})}
+														/>
+													</div>
+>>>>>>> 950b3d5ef0fa51986da9116bdd828be66974a44d
 												</div>
-											</div>
-											<div className="col-xxs-12 col-xs-6 mt alternate">
-												<div className="input-field">
-													<label htmlFor="date-end">Check Out:</label>
-													<input type="text" className="form-control" id="date-end" placeholder="mm/dd/yyyy"/>
+												<div className="col-xxs-12 col-xs-6 mt alternate">
+													<div className="input-field">
+														<label htmlFor="date-start">Check In:</label>
+														<input 
+															type="text" 
+															className="form-control" 
+															id="date-start" 
+															placeholder="yyyy-mm-dd"
+															value={this.state.dateGo}
+															onChange={(e) => this.setState({dateGo: e.target.value})}
+														/>
+													</div>
 												</div>
-											</div>
-											<div className="col-sm-12 mt">
-												<section>
-													<label htmlFor="className">Class:</label>
-													<select className="cs-select cs-skin-border">
-														<option value="" defaultValue></option>
-														<option value="economy">Economy</option>
-														<option value="first">First</option>
-														<option value="business">Business</option>
-													</select>
-												</section>
-											</div>
-											<div className="col-xxs-12 col-xs-6 mt">
-												<section>
-													<label htmlFor="className">Adult:</label>
-													<select className="cs-select cs-skin-border">
-														<option value="" defaultValue></option>
-														<option value="1">1</option>
-														<option value="2">2</option>
-														<option value="3">3</option>
-														<option value="4">4</option>
-													</select>
-												</section>
-											</div>
-											<div className="col-xxs-12 col-xs-6 mt">
-												<section>
-													<label htmlFor="className">Children:</label>
-													<select className="cs-select cs-skin-border">
-														<option value="" defaultValue></option>
-														<option value="1">1</option>
-														<option value="2">2</option>
-														<option value="3">3</option>
-														<option value="4">4</option>
-													</select>
-												</section>
-											</div>
-											<div className="col-xs-12">
-												<input type="submit" className="btn btn-primary btn-block" value="Search Flight" />
+												<div className="col-xxs-12 col-xs-6 mt alternate">
+													<div className="input-field">
+														<label htmlFor="date-end">Check Out:</label>
+														<input 
+															type="text" 
+															className="form-control" 
+															id="date-end" 
+															placeholder="yyyy-mm-dd"
+															value={this.state.dateBack}
+															onChange={(e) => this.setState({dateBack: e.target.value})}
+														/>
+													</div>
+												</div>
+												<div className="col-sm-12 mt">
+													<section>
+														<label htmlFor="className">Class:</label>
+														<select className="cs-select cs-skin-border">
+															<option value="" defaultValue></option>
+															<option value="economy">Economy</option>
+															<option value="first">First</option>
+															<option value="business">Business</option>
+														</select>
+													</section>
+												</div>
+												<div className="col-xxs-12 col-xs-6 mt">
+													<section>
+														<label htmlFor="className">Adult:</label>
+														<select className="cs-select cs-skin-border">
+															<option value="" defaultValue></option>
+															<option value="1">1</option>
+															<option value="2">2</option>
+															<option value="3">3</option>
+															<option value="4">4</option>
+														</select>
+													</section>
+												</div>
+												<div className="col-xxs-12 col-xs-6 mt">
+													<section>
+														<label htmlFor="className">Children:</label>
+														<select className="cs-select cs-skin-border">
+															<option value="" defaultValue></option>
+															<option value="1">1</option>
+															<option value="2">2</option>
+															<option value="3">3</option>
+															<option value="4">4</option>
+														</select>
+													</section>
+												</div>
+												<div className="col-xs-12">
+													<input type="submit" className="btn btn-primary btn-block" value="Search Flight" />
+												</div>
 											</div>
 										</div>
-									 </div>
 
+<<<<<<< HEAD
 									 <div role="tabpanel" className="tab-pane" id="hotels">
 									 	<div className="row">
 											<div className="col-xxs-12 col-xs-12 mt">
 												<div className="input-field">
 													<label htmlFor="from">City:</label>
 													<input type="text" className="form-control" id="place-search-input" placeholder="Los Angeles, USA"/>
+=======
+										<div role="tabpanel" className="tab-pane" id="hotels">
+											<div className="row">
+												<div className="col-xxs-12 col-xs-12 mt">
+													<div className="input-field">
+														<label htmlFor="from">City:</label>
+														<input type="text" className="form-control" id="from-place" placeholder="Los Angeles, USA"/>
+													</div>
+>>>>>>> 950b3d5ef0fa51986da9116bdd828be66974a44d
 												</div>
-											</div>
-											<div className="col-xxs-12 col-xs-6 mt alternate">
-												<div className="input-field">
-													<label htmlFor="date-start">Return:</label>
-													<input type="text" className="form-control" id="date-start" placeholder="mm/dd/yyyy"/>
+												<div className="col-xxs-12 col-xs-6 mt alternate">
+													<div className="input-field">
+														<label htmlFor="date-start">Return:</label>
+														<input type="text" className="form-control" id="date-start" placeholder="mm/dd/yyyy"/>
+													</div>
 												</div>
-											</div>
-											<div className="col-xxs-12 col-xs-6 mt alternate">
-												<div className="input-field">
-													<label htmlFor="date-end">Check Out:</label>
-													<input type="text" className="form-control" id="date-end" placeholder="mm/dd/yyyy"/>
+												<div className="col-xxs-12 col-xs-6 mt alternate">
+													<div className="input-field">
+														<label htmlFor="date-end">Check Out:</label>
+														<input type="text" className="form-control" id="date-end" placeholder="mm/dd/yyyy"/>
+													</div>
 												</div>
-											</div>
-											<div className="col-sm-12 mt">
-												<section>
-													<label htmlFor="className">Rooms:</label>
-													<select className="cs-select cs-skin-border">
-														<option value="" defaultValue>1</option>
-														<option value="economy">1</option>
-														<option value="first">2</option>
-														<option value="business">3</option>
-													</select>
-												</section>
-											</div>
-											<div className="col-xxs-12 col-xs-6 mt">
-												<section>
-													<label htmlFor="className">Adult:</label>
-													<select className="cs-select cs-skin-border">
-														<option value="" defaultValue>1</option>
-														<option value="1">1</option>
-														<option value="2">2</option>
-														<option value="3">3</option>
-														<option value="4">4</option>
-													</select>
-												</section>
-											</div>
-											<div className="col-xxs-12 col-xs-6 mt">
-												<section>
-													<label htmlFor="className">Children:</label>
-													<select className="cs-select cs-skin-border">
-														<option value="" defaultValue>1</option>
-														<option value="1">1</option>
-														<option value="2">2</option>
-														<option value="3">3</option>
-														<option value="4">4</option>
-													</select>
-												</section>
-											</div>
-											<div className="col-xs-12">
-												<input type="submit" className="btn btn-primary btn-block" value="Search Hotel" />
+												<div className="col-sm-12 mt">
+													<section>
+														<label htmlFor="className">Rooms:</label>
+														<select className="cs-select cs-skin-border">
+															<option value="" defaultValue>1</option>
+															<option value="economy">1</option>
+															<option value="first">2</option>
+															<option value="business">3</option>
+														</select>
+													</section>
+												</div>
+												<div className="col-xxs-12 col-xs-6 mt">
+													<section>
+														<label htmlFor="className">Adult:</label>
+														<select className="cs-select cs-skin-border">
+															<option value="" defaultValue>1</option>
+															<option value="1">1</option>
+															<option value="2">2</option>
+															<option value="3">3</option>
+															<option value="4">4</option>
+														</select>
+													</section>
+												</div>
+												<div className="col-xxs-12 col-xs-6 mt">
+													<section>
+														<label htmlFor="className">Children:</label>
+														<select className="cs-select cs-skin-border">
+															<option value="" defaultValue>1</option>
+															<option value="1">1</option>
+															<option value="2">2</option>
+															<option value="3">3</option>
+															<option value="4">4</option>
+														</select>
+													</section>
+												</div>
+												<div className="col-xs-12">
+													<input type="submit" className="btn btn-primary btn-block" value="Search Hotel" />
+												</div>
 											</div>
 										</div>
-									 </div>
 
+<<<<<<< HEAD
 									 <div role="tabpanel" className="tab-pane" id="packages">
 									 	<div className="row">
 										 <div className="col-xxs-12 col-xs-12 mt">
@@ -257,63 +323,78 @@ class HeroSection extends Component {
 												<div className="input-field">
 													<label htmlFor="from">Destination:</label>
 													<input type="text" className="form-control" id="to-place_pk" placeholder="Tokyo, Japan"/>
+=======
+										<div role="tabpanel" className="tab-pane" id="packages">
+											<div className="row">
+												<div className="col-xxs-12 col-xs-6 mt">
+													<div className="input-field">
+														<label htmlFor="from">City:</label>
+														<input type="text" className="form-control" id="from-place" placeholder="Los Angeles, USA"/>
+													</div>
 												</div>
-											</div>
-											<div className="col-xxs-12 col-xs-6 mt alternate">
-												<div className="input-field">
-													<label htmlFor="date-start">Departs:</label>
-													<input type="text" className="form-control" id="date-start" placeholder="mm/dd/yyyy"/>
+												<div className="col-xxs-12 col-xs-6 mt">
+													<div className="input-field">
+														<label htmlFor="from">Destination:</label>
+														<input type="text" className="form-control" id="to-place" placeholder="Tokyo, Japan"/>
+													</div>
+>>>>>>> 950b3d5ef0fa51986da9116bdd828be66974a44d
 												</div>
-											</div>
-											<div className="col-xxs-12 col-xs-6 mt alternate">
-												<div className="input-field">
-													<label htmlFor="date-end">Return:</label>
-													<input type="text" className="form-control" id="date-end" placeholder="mm/dd/yyyy"/>
+												<div className="col-xxs-12 col-xs-6 mt alternate">
+													<div className="input-field">
+														<label htmlFor="date-start">Departs:</label>
+														<input type="text" className="form-control" id="date-start" placeholder="mm/dd/yyyy"/>
+													</div>
 												</div>
-											</div>
-											<div className="col-sm-12 mt">
-												<section>
-													<label htmlFor="className">Rooms:</label>
-													<select className="cs-select cs-skin-border">
-														<option value="" defaultValue>1</option>
-														<option value="economy">1</option>
-														<option value="first">2</option>
-														<option value="business">3</option>
-													</select>
-												</section>
-											</div>
-											<div className="col-xxs-12 col-xs-6 mt">
-												<section>
-													<label htmlFor="className">Adult:</label>
-													<select className="cs-select cs-skin-border">
-														<option value="" defaultValue>1</option>
-														<option value="1">1</option>
-														<option value="2">2</option>
-														<option value="3">3</option>
-														<option value="4">4</option>
-													</select>
-												</section>
-											</div>
-											<div className="col-xxs-12 col-xs-6 mt">
-												<section>
-													<label htmlFor="className">Children:</label>
-													<select className="cs-select cs-skin-border">
-														<option value="" defaultValue>1</option>
-														<option value="1">1</option>
-														<option value="2">2</option>
-														<option value="3">3</option>
-														<option value="4">4</option>
-													</select>
-												</section>
-											</div>
-											<div className="col-xs-12">
-												<input type="submit" className="btn btn-primary btn-block" value="Search Packages" />
+												<div className="col-xxs-12 col-xs-6 mt alternate">
+													<div className="input-field">
+														<label htmlFor="date-end">Return:</label>
+														<input type="text" className="form-control" id="date-end" placeholder="mm/dd/yyyy"/>
+													</div>
+												</div>
+												<div className="col-sm-12 mt">
+													<section>
+														<label htmlFor="className">Rooms:</label>
+														<select className="cs-select cs-skin-border">
+															<option value="" defaultValue>1</option>
+															<option value="economy">1</option>
+															<option value="first">2</option>
+															<option value="business">3</option>
+														</select>
+													</section>
+												</div>
+												<div className="col-xxs-12 col-xs-6 mt">
+													<section>
+														<label htmlFor="className">Adult:</label>
+														<select className="cs-select cs-skin-border">
+															<option value="" defaultValue>1</option>
+															<option value="1">1</option>
+															<option value="2">2</option>
+															<option value="3">3</option>
+															<option value="4">4</option>
+														</select>
+													</section>
+												</div>
+												<div className="col-xxs-12 col-xs-6 mt">
+													<section>
+														<label htmlFor="className">Children:</label>
+														<select className="cs-select cs-skin-border">
+															<option value="" defaultValue>1</option>
+															<option value="1">1</option>
+															<option value="2">2</option>
+															<option value="3">3</option>
+															<option value="4">4</option>
+														</select>
+													</section>
+												</div>
+												<div className="col-xs-12">
+													<input type="submit" className="btn btn-primary btn-block" value="Search Packages" />
+												</div>
 											</div>
 										</div>
-									 </div>
-									</div>
+										</div>
 
-								</div>
+									</div>
+								</form>
 							</div>
 							<div className="desc2 animate-box">
 								<div className="col-sm-7 col-sm-push-1 col-md-7 col-md-push-1">

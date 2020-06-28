@@ -11,6 +11,7 @@ import ContactSection from './Components/ContactSection';
 import Hotel from './Components/TourSection_Hotel'
 import NavBar from './Components/Header';
 import Foot from './Components/FooterSection';
+import FlightsResult from './Components/FlightsResult';
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
      <Route exact path="/vacations" component={TourSection_Vacation}/>
      <Route exact path="/blog" component={BlogSection}/>
      <Route exact path="/contact" component={ContactSection}/>
+     <Route exact path='/flights-result' component={FlightsResult} />
      <Foot/>
      </div>
    </Router>
