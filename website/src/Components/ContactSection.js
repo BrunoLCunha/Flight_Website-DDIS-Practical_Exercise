@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Map, Marker, GoogleApiWrapper} from 'google-maps-react';
+import {Map, GoogleApiWrapper} from 'google-maps-react';
 
 class ContactSection extends Component {
     render(){
@@ -21,14 +21,14 @@ class ContactSection extends Component {
 								<li><i className="icon-location-pin"></i>Rua Arlindo Béttio, 1000 - Ermelino Matarazzo, São Paulo - SP, 03828-000</li>
 								<li><i className="icon-phone2"></i>+55 11 91234-5678</li>
 								<li><i className="icon-mail"></i><a href="#">DSID5@usp.br</a></li>
-								<li><i className="icon-globe2"></i><a href="#">each.usp.br</a></li>
+								<li><i className="icon-globe2"></i><a href="http://www5.each.usp.br/">each.usp.br</a></li>
 							</ul>
 						</div>
 						<div className="col-md-6">
 							<div className="row">
 								<div className="col-md-6">
 									<div className="form-group">
-										<input type="text" className="form-control" placeholder="Name" />
+										<input type="text" className="form-control" placeholder="Nome" />
 									</div>
 								</div>
 								<div className="col-md-6">
@@ -38,12 +38,12 @@ class ContactSection extends Component {
 								</div>
 								<div className="col-md-12">
 									<div className="form-group">
-										<textarea name="" className="form-control" id="" cols="30" rows="7" placeholder="Message"></textarea>
+										<textarea name="" className="form-control" id="" cols="30" rows="7" placeholder="Mensagem"></textarea>
 									</div>
 								</div>
 								<div className="col-md-12">
 									<div className="form-group">
-										<input type="submit" value="Send Message" className="btn btn-primary" />
+										<input type="submit" value="Enviar Mensagem" className="btn btn-primary" />
 									</div>
 								</div>
 							</div>

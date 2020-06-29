@@ -8,32 +8,33 @@ class TourSection_Flight extends Component {
 			<div className="container">
 				<div className="row">
 					<div className="col-md-8 col-md-offset-2 text-center heading-section animate-box">
-						<h3>Hot Tours</h3>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+						<h3>Mais procurados</h3>
+						<p>As viagens que estão fazendo mais sucesso entre nossos usuários.</p>
+						<DestinationsRow />
 					</div>
 				</div>
 				<div className="row row-bottom-padded-md">
 					<div className="col-md-12 animate-box">
-						<h2 className="heading-title">Todays Flight Deal</h2>
+						<h2 className="heading-title">Ofertas da semana</h2>
 					</div>
 					<div className="col-md-6 animate-box">
 						<div className="row">
 							<div className="col-md-12">
-								<h4>Better Deals, More Abilities</h4>
-								<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+								<h4>Melhores ofertas, mais habilidades</h4>
+								<p>As melhores ofertas, você encontra em nosso site.</p>
 							</div>
 							<div className="col-md-12">
-								<h4>Keep up with the news of your airline</h4>
-								<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+								<h4>Acompanhe seu vôo</h4>
+								<p>Mantenha-se informado sobre atrasos, adiamentos e cancelamentos.</p>
 							</div>
 							<div className="col-md-12">
-								<h4>In-Flight Experience</h4>
-								<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+								<h4>Experiência de vôo</h4>
+								<p>Conheça todas as regalias que a companhia oferece para seu conforto.</p>
 							</div>
 						</div>
 					</div>
 					<div className="col-md-6 animate-box">
-						<img className="img-responsive" src="images/cover_bg_3.jpg" alt="travel" />
+						<img className="img-responsive" src="images\ross-parmly-rf6ywHVkrlY-unsplash.jpg" alt="travel" />
 						<a href="#" className="flight-book">
 							<div className="plane-name">
 								<span className="p-flight">United States Airways</span>
@@ -104,8 +105,6 @@ class TourSection_Flight extends Component {
 						</a>
 					</div>
 				</div>
-				<DestinationsRow />
-				<DestinationsRow />
 			</div>
 		</div>
 

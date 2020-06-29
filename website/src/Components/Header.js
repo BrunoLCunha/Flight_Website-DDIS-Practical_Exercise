@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import Link from 'react-router-dom';
 
 class Header extends Component {
     render() {
@@ -12,7 +11,7 @@ class Header extends Component {
                         {/*<!-- START #fh5co-menu-wrap -->*/}
                         <nav id="fh5co-menu-wrap" role="navigation">
                             <ul className="sf-menu" id="fh5co-primary-menu">
-                                <li className="active"><a href="/">Menu</a></li>
+                                <li><a href="/">Início</a></li>
                                 <li>
                                     <a href="/vacations" className="fh5co-sub-ddown">Viagens</a>
                                     <ul className="fh5co-sub-menu">

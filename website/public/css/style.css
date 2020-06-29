@@ -169,7 +169,7 @@ figure {
 }
 @media screen and (max-width: 768px) {
   .fh5co-cover {
-    heifght: inherit;
+    height: inherit;
     padding: 3em 0;
   }
 }
@@ -182,7 +182,7 @@ figure {
 }
 @media screen and (max-width: 768px) {
   .fh5co-cover.fh5co-cover_2 {
-    heifght: inherit;
+    height: inherit;
     padding: 3em 0;
   }
 }
@@ -192,7 +192,7 @@ figure {
   width: 100%;
   margin-top: -80px;
   z-index: 2;
-  color: #fff;
+  color: #000;
 }
 @media screen and (max-width: 768px) {
   .fh5co-cover .desc {
@@ -413,7 +413,6 @@ figure {
 #fh5co-primary-menu > li > .sf-with-ul:after {
   border: none !important;
   font-family: 'icomoon';
-  speak: none;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -437,7 +436,6 @@ figure {
 #fh5co-primary-menu > li > ul li > .sf-with-ul:after {
   border: none !important;
   font-family: 'icomoon';
-  speak: none;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -566,19 +564,27 @@ figure {
 }
 .tabulation input[type="text"]::-webkit-input-placeholder {
   /* Chrome/Opera/Safari */
-  color: #F78536 !important;
+  color: #333 !important;
+  font-style: italic;
+  font-weight: lighter;
 }
 .tabulation input[type="text"]::-moz-placeholder {
   /* Firefox 19+ */
-  color: #F78536 !important;
+  color: #333 !important;
+  font-style: italic;
+  font-weight: lighter;
 }
 .tabulation input[type="text"]:-ms-input-placeholder {
   /* IE 10+ */
-  color: #F78536 !important;
+  color: #333 !important;
+  font-style: italic;
+  font-weight: lighter;
 }
 .tabulation input[type="text"]:-moz-placeholder {
   /* Firefox 18- */
-  color: #F78536 !important;
+  color: #333 !important;
+  font-style: italic;
+  font-weight: lighter;
 }
 @media screen and (max-width: 480px) {
   .tabulation input[type="text"] {
@@ -647,7 +653,7 @@ div.cs-select span {
 
 .cs-skin-border {
   font-size: 16px;
-  color: #fff;
+  color: #000;
 }
 @media screen and (max-width: 829px) {
   .cs-skin-border {

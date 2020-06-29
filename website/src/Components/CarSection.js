@@ -7,8 +7,8 @@ class CarSection extends Component {
 			<div className="container">
 				<div className="row">
 					<div className="col-md-8 col-md-offset-2 text-center heading-section animate-box">
-						<h3>Car Rent In U.S.</h3>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+						<h3>Aluguel de carros</h3>
+						<p>Descubra aqui onde alugar um carro para sua viagem com o melhor preço.</p>
 					</div>
 				</div>
 				<div className="row row-bottom-padded-md">

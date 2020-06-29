@@ -8,8 +8,8 @@ class TourSection extends Component {
 			<div className="container">
 				<div className="row">
 					<div className="col-md-8 col-md-offset-2 text-center heading-section animate-box">
-						<h3>Hot Tours</h3>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+						<h3>Mais procurados</h3>
+						<p>As viagens que estão fazendo mais sucesso entre nossos usuários.</p>
 					</div>
 				</div>
 				<DestinationsRow />

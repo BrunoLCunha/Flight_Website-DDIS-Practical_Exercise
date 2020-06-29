@@ -8,8 +8,8 @@ class TourSection_Vacation extends Component {
 			<div className="container">
 				<div className="row">
 					<div className="col-md-8 col-md-offset-2 text-center heading-section animate-box">
-						<h3>Tourist Spots</h3>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+						<h3>Cartões Postais</h3>
+						<p>Visite as paisagens mais procuradas do planeta.</p>
 					</div>
 				</div>
 				<DestinationsRow />

@@ -67,7 +67,7 @@ class HeroSection extends Component {
             <div className="fh5co-hero">
 			<script src="https://api.mqcdn.com/sdk/place-search-js/v1.0.0/place-search.js"></script>
 			<div className="fh5co-overlay"></div>
-			<div className="fh5co-cover" data-stellar-background-ratio="0.5" style={{backgroundImage: "%PUBLIC_URL%/images/cover_bg_1.jpg"}}>
+			<div className="fh5co-cover" data-stellar-background-ratio="0.5" style={{backgroundImage: `url(images/egypt.jpg)`}}>
 				<div className="desc">
 					<div className="container">
 						<div className="row">
@@ -78,13 +78,13 @@ class HeroSection extends Component {
 									{/*Nav tabs*/}
 									<ul className="nav nav-tabs" role="tablist">
 										<li role="presentation" className="active">
-											<a href="#flights" aria-controls="flights" role="tab" data-toggle="tab">Flights</a>
+											<a href="#flights" aria-controls="flights" role="tab" data-toggle="tab">Vôos</a>
 										</li>
 										<li role="presentation">
-											<a href="#hotels" aria-controls="hotels" role="tab" data-toggle="tab">Hotels</a>
+											<a href="#hotels" aria-controls="hotels" role="tab" data-toggle="tab">Hotéis</a>
 										</li>
 										<li role="presentation">
-											<a href="#packages" aria-controls="packages" role="tab" data-toggle="tab">Packages</a>
+											<a href="#packages" aria-controls="packages" role="tab" data-toggle="tab">Pacotes</a>
 										</li>
 									</ul>
 									
@@ -95,12 +95,12 @@ class HeroSection extends Component {
 											<div className="row">
 												<div className="col-xxs-12 col-xs-12 mt">
 													<div className="input-field">
-														<label htmlFor="from">From:</label>
+														<label htmlFor="from">Origem:</label>
 														<input 
 															type="text" 
 															className="form-control" 
 															id="place-search-input" 
-															placeholder="Sao Paulo"
+															placeholder="País ou cidade"
 															required="required" 
 															data-validation-required-message="Please enter your departure origin" 													
 															onInput={(e) => this.setState({from: e.target.value})}
@@ -109,24 +109,22 @@ class HeroSection extends Component {
 												</div>
 												<div className="col-xxs-12 col-xs-12 mt">
 													<div className="input-field">
-														<label htmlFor="from">To:</label>
+														<label htmlFor="from">Destino:</label>
 														<input 
 															type="text" 
 															className="form-control" 
 															id="from-place_0" 
-															placeholder="Curitiba"															
+															placeholder="País ou cidade"															
 															onInput={(e) => this.setState({to: e.target.value})}
 														/>
 													</div>
 												</div>
 												<div className="col-xxs-12 col-xs-6 mt alternate">
 													<div className="input-field">
-														<label htmlFor="date-start">Check In:</label>
+														<label htmlFor="date-start">Ida:</label>
 														<input 
-															type="text" 
-															className="form-control" 
-															id="date-start" 
-															placeholder="yyyy-mm-dd"
+															type="date"
+															id="date-start"
 															value={this.state.dateGo}
 															onChange={(e) => this.setState({dateGo: e.target.value})}
 														/>
@@ -134,12 +132,10 @@ class HeroSection extends Component {
 												</div>
 												<div className="col-xxs-12 col-xs-6 mt alternate">
 													<div className="input-field">
-														<label htmlFor="date-end">Check Out:</label>
+														<label htmlFor="date-end">Volta:</label>
 														<input 
-															type="text" 
-															className="form-control" 
+															type="date" 
 															id="date-end" 
-															placeholder="yyyy-mm-dd"
 															value={this.state.dateBack}
 															onChange={(e) => this.setState({dateBack: e.target.value})}
 														/>
@@ -147,21 +143,19 @@ class HeroSection extends Component {
 												</div>
 												<div className="col-sm-12 mt">
 													<section>
-														<label htmlFor="className">Class:</label>
+														<label htmlFor="className">Classe:</label>
 														<select className="cs-select cs-skin-border">
-															<option value="" defaultValue></option>
-															<option value="economy">Economy</option>
-															<option value="first">First</option>
-															<option value="business">Business</option>
+															<option value="" defaultValue>Econômica</option>
+															<option value="first">Primeira</option>
+															<option value="business">Executiva</option>
 														</select>
 													</section>
 												</div>
 												<div className="col-xxs-12 col-xs-6 mt">
 													<section>
-														<label htmlFor="className">Adult:</label>
+														<label htmlFor="className">Adultos:</label>
 														<select className="cs-select cs-skin-border">
-															<option value="" defaultValue></option>
-															<option value="1">1</option>
+															<option value="" defaultValue>1</option>
 															<option value="2">2</option>
 															<option value="3">3</option>
 															<option value="4">4</option>
@@ -170,10 +164,9 @@ class HeroSection extends Component {
 												</div>
 												<div className="col-xxs-12 col-xs-6 mt">
 													<section>
-														<label htmlFor="className">Children:</label>
+														<label htmlFor="className">Crianças:</label>
 														<select className="cs-select cs-skin-border">
-															<option value="" defaultValue></option>
-															<option value="1">1</option>
+															<option value="" defaultValue>1</option>
 															<option value="2">2</option>
 															<option value="3">3</option>
 															<option value="4">4</option>
@@ -181,7 +174,7 @@ class HeroSection extends Component {
 													</section>
 												</div>
 												<div className="col-xs-12">
-													<input type="submit" className="btn btn-primary btn-block" value="Search Flight" />
+													<input type="submit" className="btn btn-primary btn-block" value="Buscar vôos" />
 												</div>
 											</div>
 										</div>
@@ -190,28 +183,27 @@ class HeroSection extends Component {
 											<div className="row">
 												<div className="col-xxs-12 col-xs-12 mt">
 													<div className="input-field">
-														<label htmlFor="from">City:</label>
+														<label htmlFor="from">Cidade:</label>
 														<input type="text" className="form-control" id="to-place_0" placeholder="Los Angeles, USA"/>
 													</div>
 												</div>
 												<div className="col-xxs-12 col-xs-6 mt alternate">
 													<div className="input-field">
-														<label htmlFor="date-start">Return:</label>
-														<input type="text" className="form-control" id="date-start" placeholder="mm/dd/yyyy"/>
+														<label htmlFor="date-start">Check In:</label>
+														<input type="date" id="date-start"/>
 													</div>
 												</div>
 												<div className="col-xxs-12 col-xs-6 mt alternate">
 													<div className="input-field">
 														<label htmlFor="date-end">Check Out:</label>
-														<input type="text" className="form-control" id="date-end" placeholder="mm/dd/yyyy"/>
+														<input type="date" id="date-end"/>
 													</div>
 												</div>
 												<div className="col-sm-12 mt">
 													<section>
-														<label htmlFor="className">Rooms:</label>
+														<label htmlFor="className">Quartos:</label>
 														<select className="cs-select cs-skin-border">
 															<option value="" defaultValue>1</option>
-															<option value="economy">1</option>
 															<option value="first">2</option>
 															<option value="business">3</option>
 														</select>
@@ -219,10 +211,9 @@ class HeroSection extends Component {
 												</div>
 												<div className="col-xxs-12 col-xs-6 mt">
 													<section>
-														<label htmlFor="className">Adult:</label>
+														<label htmlFor="className">Adultos:</label>
 														<select className="cs-select cs-skin-border">
 															<option value="" defaultValue>1</option>
-															<option value="1">1</option>
 															<option value="2">2</option>
 															<option value="3">3</option>
 															<option value="4">4</option>
@@ -231,10 +222,9 @@ class HeroSection extends Component {
 												</div>
 												<div className="col-xxs-12 col-xs-6 mt">
 													<section>
-														<label htmlFor="className">Children:</label>
+														<label htmlFor="className">Crianças:</label>
 														<select className="cs-select cs-skin-border">
 															<option value="" defaultValue>1</option>
-															<option value="1">1</option>
 															<option value="2">2</option>
 															<option value="3">3</option>
 															<option value="4">4</option>
@@ -242,7 +232,7 @@ class HeroSection extends Component {
 													</section>
 												</div>
 												<div className="col-xs-12">
-													<input type="submit" className="btn btn-primary btn-block" value="Search Hotel" />
+													<input type="submit" className="btn btn-primary btn-block" value="Buscar hotéis" />
 												</div>
 											</div>
 										</div>
@@ -251,34 +241,33 @@ class HeroSection extends Component {
 											<div className="row">
 												<div className="col-xxs-12 col-xs-6 mt">
 													<div className="input-field">
-														<label htmlFor="from">City:</label>
+														<label htmlFor="from">Cidade:</label>
 														<input type="text" className="form-control" id="from-place_pk" placeholder="Los Angeles, USA"/>
 													</div>
 												</div>
 												<div className="col-xxs-12 col-xs-6 mt">
 													<div className="input-field">
-														<label htmlFor="from">Destination:</label>
+														<label htmlFor="from">Destino:</label>
 														<input type="text" className="form-control" id="to-place_pk" placeholder="Tokyo, Japan"/>
 													</div>
 												</div>
 												<div className="col-xxs-12 col-xs-6 mt alternate">
 													<div className="input-field">
-														<label htmlFor="date-start">Departs:</label>
-														<input type="text" className="form-control" id="date-start" placeholder="mm/dd/yyyy"/>
+														<label htmlFor="date-start">Ida:</label>
+														<input type="date" id="date-start"/>
 													</div>
 												</div>
 												<div className="col-xxs-12 col-xs-6 mt alternate">
 													<div className="input-field">
-														<label htmlFor="date-end">Return:</label>
-														<input type="text" className="form-control" id="date-end" placeholder="mm/dd/yyyy"/>
+														<label htmlFor="date-end">Volta:</label>
+														<input type="date" id="date-end"/>
 													</div>
 												</div>
 												<div className="col-sm-12 mt">
 													<section>
-														<label htmlFor="className">Rooms:</label>
+														<label htmlFor="className">Quartos:</label>
 														<select className="cs-select cs-skin-border">
 															<option value="" defaultValue>1</option>
-															<option value="economy">1</option>
 															<option value="first">2</option>
 															<option value="business">3</option>
 														</select>
@@ -286,10 +275,9 @@ class HeroSection extends Component {
 												</div>
 												<div className="col-xxs-12 col-xs-6 mt">
 													<section>
-														<label htmlFor="className">Adult:</label>
+														<label htmlFor="className">Adultos:</label>
 														<select className="cs-select cs-skin-border">
 															<option value="" defaultValue>1</option>
-															<option value="1">1</option>
 															<option value="2">2</option>
 															<option value="3">3</option>
 															<option value="4">4</option>
@@ -298,10 +286,9 @@ class HeroSection extends Component {
 												</div>
 												<div className="col-xxs-12 col-xs-6 mt">
 													<section>
-														<label htmlFor="className">Children:</label>
+														<label htmlFor="className">Crianças:</label>
 														<select className="cs-select cs-skin-border">
 															<option value="" defaultValue>1</option>
-															<option value="1">1</option>
 															<option value="2">2</option>
 															<option value="3">3</option>
 															<option value="4">4</option>
@@ -309,7 +296,7 @@ class HeroSection extends Component {
 													</section>
 												</div>
 												<div className="col-xs-12">
-													<input type="submit" className="btn btn-primary btn-block" value="Search Packages" />
+													<input type="submit" className="btn btn-primary btn-block" value="Buscar pacotes" />
 												</div>
 											</div>
 										</div>
@@ -320,11 +307,8 @@ class HeroSection extends Component {
 							</div>
 							<div className="desc2 animate-box">
 								<div className="col-sm-7 col-sm-push-1 col-md-7 col-md-push-1">
-									<p>HandCrafted by <a href="http://frehtml5.co/" target="_blank" className="fh5co-site-name">FreeHTML5.co</a></p>
-									<h2>Exclusive Limited Time Offer</h2>
-									<h3>Fly to Hong Kong via Los Angeles, USA</h3>
-									<span className="price">$599</span>
-									{/* <p><a className="btn btn-primary btn-lg" href="#">Get Started</a></p> */}
+									<h2>Escolha sua próxima viagem</h2>
+									<h3>Cuidamos dos detalhes para você se preocupar em criar novas memórias inesquecíveis</h3>
 								</div>
 							</div>
 						</div>
