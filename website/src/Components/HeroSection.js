@@ -141,7 +141,7 @@ class HeroSection extends Component {
 														/>
 													</div>
 												</div>
-												<div className="col-sm-12 mt">
+												{/*<div className="col-sm-12 mt">
 													<section>
 														<label htmlFor="className">Classe:</label>
 														<select className="cs-select cs-skin-border">
@@ -172,7 +172,7 @@ class HeroSection extends Component {
 															<option value="4">4</option>
 														</select>
 													</section>
-												</div>
+												</div>*/}
 												<div className="col-xs-12">
 													<input type="submit" className="btn btn-primary btn-block" value="Buscar vôos" />
 												</div>
