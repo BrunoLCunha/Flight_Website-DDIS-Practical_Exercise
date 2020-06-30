@@ -1,7 +1,41 @@
 import React, {Component} from 'react';
 
 class BlogSection extends Component {
+    
+    constructor(props) {
+        super(props)
+        
+        this.state = {
+            posts: [],
+            loading: true,
+            error: null
+        }
+    }
+
+    async componentDidMount() {
+        let url = 'https://us-central1-dsid-gp5.cloudfunctions.net/api/blog/'; 
+        
+        fetch(url)  
+            .then(response => response.json())
+            .then(data => {
+                this.setState({ posts: data, loading: false });
+                return data;
+            })
+            .catch(error =>  this.setState({ error: error, loading: false }));
+
+    }
+
     render() {
+
+        if (this.state.loading) {
+            return <div>Loading...</div>;
+        }
+    
+        if (this.state.error) {
+            // console.log(this.state.error)
+            // return <div>{this.state.error}</div>;
+        }
+
         return(
             <div id="fh5co-blog-section" className="fh5co-section-gray">
                 <div className="container">

@@ -4,6 +4,7 @@ const app = require("express")();
 
 admin.initializeApp();
 const db = admin.firestore().collection("users");
+const dbBlog = admin.firestore().collection("blog");
 
 // TODO: create todoList
 // TODO: remove todoList
@@ -47,6 +48,26 @@ app.post("/users", function (req, res) {
       .then(function () {
         res.json({ general: "It works" });
       })
+})
+
+// ------------ DSIDESTINOS ------------
+
+app.get("/blog", function (req, res) {
+  dbBlog.get()
+    .then(function (docs) {
+      let posts = [];
+      docs.forEach(function (doc) {
+        posts.push(doc.data())
+      })
+      res.json(posts);
+    });
+})
+
+app.post("/blog", function (req, res) {
+  dbBlog.doc(req.body.postId.toString()).set(req.body)
+    .then(function () {
+      res.json({ general: "Publicado com sucesso!" });
+    })
 })
 
 exports.api = functions.https.onRequest(app)
