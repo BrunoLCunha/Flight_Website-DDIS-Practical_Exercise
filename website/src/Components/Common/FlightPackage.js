@@ -4,7 +4,7 @@ class FlightPackage extends Component {
     render () {
         return(
             <div class="col-md-4 col-sm-6 fh5co-tours animate-box" data-animate-effect="fadeIn">
-                <div href="#"><img src={"images/" + this.props.img} alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive" />
+                <div href="#"><img src={"images/" + this.props.img} alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive" id = "hotelImg" />
                     <div class="desc">
                         <span></span>
                         <h3>{this.props.name}</h3>
