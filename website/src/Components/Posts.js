@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 class Posts extends Component {
     render() {
-        return(
+        return( 
             <div className="col-lg-4 col-md-4 col-sm-6">
                 <div className="fh5co-blog animate-box">
                     <img className="img-responsive" src="images\leo-rivas-R_BLOGXpsOg-unsplash.jpg" alt="" />

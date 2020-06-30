@@ -15,10 +15,10 @@ class BlogSection extends Component {
     
     componentDidMount() {
 
-        const proxyurl = "https://cors-anywhere.herokuapp.com/";
+        const proxyUrl = "https://cors-anywhere.herokuapp.com/";
         const url = 'https://us-central1-dsid-gp5.cloudfunctions.net/api/blog/'; 
         
-        fetch(proxyurl + url)  
+        fetch(proxyUrl + url)  
             .then(response => response.json())
             .then(data => {
                 this.setState({ posts: data, loading: false });
@@ -51,12 +51,14 @@ class BlogSection extends Component {
                 </div>
                 <div className="container">
                     <div className="row row-bottom-padded-md">
-                        <Posts
-                            title={this.state.posts.title}
-                            date={this.state.posts.date}
-                            comments={this.state.posts.comments}
-                            description={this.state.posts.description}
-                        />
+                        {this.state.posts.map((post, index) => {
+                            return <Posts key={index}
+                                        title={post.title}
+                                        date={post.date}
+                                        comments={post.comments}
+                                        description={post.description}    
+                                    />
+                        })}
                         <div className="col-lg-4 col-md-4 col-sm-6">
                             <div className="fh5co-blog animate-box">
                                 <img className="img-responsive" src="images\leo-rivas-R_BLOGXpsOg-unsplash.jpg" alt="" />
