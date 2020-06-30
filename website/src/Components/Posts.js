@@ -4,7 +4,7 @@ class Posts extends Component {
     render() {
         return( 
             <div className="col-lg-4 col-md-4 col-sm-6">
-                <div className="fh5co-blog animate-box">
+                <div className="fh5co-blog" /*animate-box"*/ >
                     <img className="img-responsive" src={"images/" + this.props.img} alt="" />
                     <div className="blog-text">
                         <div className="prod-title">

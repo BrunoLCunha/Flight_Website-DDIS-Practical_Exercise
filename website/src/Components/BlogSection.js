@@ -31,12 +31,16 @@ class BlogSection extends Component {
     render() {
 
         if (this.state.loading) {
-            //return <div>Loading...</div>;
+            return <div>Loading...</div>;
         }
     
         if (this.state.error) {
             // console.log(this.state.error)
             // return <div>{this.state.error}</div>;
+        }
+
+        if (this.state.posts.length == 0) {
+            return <div>Nenhum dado foi pego da API</div>
         }
 
         return(
@@ -60,7 +64,7 @@ class BlogSection extends Component {
                                         img={'mwangi-gatheca-qlKaN7eqay8-unsplash.jpg'}    
                                     />
                         })}
-                        <div className="col-lg-4 col-md-4 col-sm-6">
+                        {/* <div className="col-lg-4 col-md-4 col-sm-6">
                             <div className="fh5co-blog animate-box">
                                 <img className="img-responsive" src="images\leo-rivas-R_BLOGXpsOg-unsplash.jpg" alt="" />
                                 <div className="blog-text">
@@ -87,7 +91,7 @@ class BlogSection extends Component {
                                 </div> 
                             </div>
                         </div>
-                        <div className="clearfix visible-md-block"></div>
+                        <div className="clearfix visible-md-block"></div> */}
                     </div>
 
                     <div className="col-md-12 text-center animate-box">
