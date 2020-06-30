@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import BlogSection from './BlogSection';
 
 class Posts extends Component {
     render() {
