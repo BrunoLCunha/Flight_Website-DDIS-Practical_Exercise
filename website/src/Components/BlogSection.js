@@ -52,11 +52,12 @@ class BlogSection extends Component {
                 <div className="container">
                     <div className="row row-bottom-padded-md">
                         {this.state.posts.map((post, index) => {
-                            return <Posts key={index}
+                            return  <Posts key={index}
                                         title={post.title}
                                         date={post.date}
                                         comments={post.comments}
-                                        description={post.description}    
+                                        description={post.description}
+                                        img={'mwangi-gatheca-qlKaN7eqay8-unsplash.jpg'}    
                                     />
                         })}
                         <div className="col-lg-4 col-md-4 col-sm-6">
