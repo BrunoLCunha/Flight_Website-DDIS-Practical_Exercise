@@ -766,6 +766,8 @@ div.cs-select span {
 }
 .fh5co-tours > div img {
   position: relative;
+  width: 100%;
+  height: 400px;
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
   transition: 0.5s;

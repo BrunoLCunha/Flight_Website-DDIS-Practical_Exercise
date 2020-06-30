@@ -12,6 +12,7 @@ import Hotel from './Components/TourSection_Hotel'
 import NavBar from './Components/Header';
 import Foot from './Components/FooterSection';
 import FlightsResult from './Components/FlightsResult';
+import DeadEnd from './Components/DeadEnd';
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
      <Route exact path="/blog" component={BlogSection}/>
      <Route exact path="/contact" component={ContactSection}/>
      <Route exact path='/flights-result' component={FlightsResult} />
+     <Route exact path="/deadend" component={DeadEnd} />
      <Foot/>
      </div>
    </Router>

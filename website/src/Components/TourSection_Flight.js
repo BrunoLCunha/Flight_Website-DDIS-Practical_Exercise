@@ -10,9 +10,9 @@ class TourSection_Flight extends Component {
 					<div className="col-md-8 col-md-offset-2 text-center heading-section animate-box">
 						<h3>Mais procurados</h3>
 						<p>As viagens que estão fazendo mais sucesso entre nossos usuários.</p>
-						<DestinationsRow />
 					</div>
 				</div>
+				<DestinationsRow />
 				<div className="row row-bottom-padded-md">
 					<div className="col-md-12 animate-box">
 						<h2 className="heading-title">Ofertas da semana</h2>
