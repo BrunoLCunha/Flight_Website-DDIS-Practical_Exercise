@@ -94,6 +94,6 @@
 
 <wsdl:service name="StockQuoteService">
     <wsdl:port name="StockQuotePort" binding="tns:StockQuoteSoapBinding">
-       <soap:address location="http://localhost:5002/stockquote"/>
+       <soap:address location="https://us-central1-dsid-gp5.cloudfunctions.net/stockquote"/>
     </wsdl:port>
 </wsdl:service>
