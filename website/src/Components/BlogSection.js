@@ -15,7 +15,7 @@ class BlogSection extends Component {
     async componentDidMount() {
         let url = 'https://us-central1-dsid-gp5.cloudfunctions.net/api/blog/'; 
         
-        fetch(url)  
+        fetch(url, {mode: 'cors'})  
             .then(response => response.json())
             .then(data => {
                 this.setState({ posts: data, loading: false });
