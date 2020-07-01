@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Posts from './Posts';
 
 class BlogSection extends Component {
     
@@ -11,11 +12,13 @@ class BlogSection extends Component {
             error: null
         }
     }
+    
+    componentDidMount() {
 
-    async componentDidMount() {
-        let url = 'https://us-central1-dsid-gp5.cloudfunctions.net/api/blog/'; 
+        const proxyUrl = "https://cors-anywhere.herokuapp.com/";
+        const url = 'https://us-central1-dsid-gp5.cloudfunctions.net/api/blog/'; 
         
-        fetch(url, {mode: 'cors'})  
+        fetch(proxyUrl + url)  
             .then(response => response.json())
             .then(data => {
                 this.setState({ posts: data, loading: false });
@@ -24,7 +27,7 @@ class BlogSection extends Component {
             .catch(error =>  this.setState({ error: error, loading: false }));
 
     }
-
+    
     render() {
 
         if (this.state.loading) {
@@ -34,6 +37,10 @@ class BlogSection extends Component {
         if (this.state.error) {
             // console.log(this.state.error)
             // return <div>{this.state.error}</div>;
+        }
+
+        if (this.state.posts.length == 0) {
+            return <div>Nenhum dado foi pego da API</div>
         }
 
         return(
@@ -48,20 +55,16 @@ class BlogSection extends Component {
                 </div>
                 <div className="container">
                     <div className="row row-bottom-padded-md">
-                        <div className="col-lg-4 col-md-4 col-sm-6">
-                            <div className="fh5co-blog animate-box">
-                                <img className="img-responsive" src="images\brett-zeck-eyfMgGvo9PA-unsplash.jpg" alt="" />
-                                <div className="blog-text">
-                                    <div className="prod-title">
-                                        <h3>30% de desconto para viajar por todo o Mundo</h3>
-                                        <span className="posted_by">15 de Mar.</span>
-                                        <span className="comment">21 <i className="icon-bubble2"></i></span>
-                                        <p>São tantas as definições dadas ao ato de viajar, que por muitas vezes nos propomos a criar nossas próprias versões desta paixão que é se aventurar por todo este Planeta. Mas talvez uma das mais lindas definições que já me deparei foi: "Viajar primeiro te deixa sem palavras. Depois te transforma num contador de histórias. - Frantine Makist" Aqui você terá a chance de coletar histórias por todo o mundo com até 30% de desconto nos seus pacotes!</p>
-                                    </div>
-                                </div> 
-                            </div>
-                        </div>
-                        <div className="col-lg-4 col-md-4 col-sm-6">
+                        {this.state.posts.map((post, index) => {
+                            return  <Posts key={index}
+                                        title={post.title}
+                                        date={post.date}
+                                        comments={post.comments}
+                                        description={post.description}
+                                        img={'mwangi-gatheca-qlKaN7eqay8-unsplash.jpg'}    
+                                    />
+                        })}
+                        {/* <div className="col-lg-4 col-md-4 col-sm-6">
                             <div className="fh5co-blog animate-box">
                                 <img className="img-responsive" src="images\leo-rivas-R_BLOGXpsOg-unsplash.jpg" alt="" />
                                 <div className="blog-text">
@@ -88,7 +91,7 @@ class BlogSection extends Component {
                                 </div> 
                             </div>
                         </div>
-                        <div className="clearfix visible-md-block"></div>
+                        <div className="clearfix visible-md-block"></div> */}
                     </div>
 
                     <div className="col-md-12 text-center animate-box">

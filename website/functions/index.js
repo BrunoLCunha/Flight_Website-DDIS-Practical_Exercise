@@ -71,3 +71,28 @@ app.post("/blog", function (req, res) {
 })
 
 exports.api = functions.https.onRequest(app)
+
+// ------------- Soap Server ----------------
+var fs = require('fs'),
+soap = require('soap'),
+express = require('express'),
+lastReqAddress;
+var server = express();
+var service = {
+  PurchaseOrderService: {
+      PurchaseOrderServiceSoapHttpPort: {
+          getPurchaseOrder: function(args) {
+              console.log(args);
+              return {
+                  name: args.name
+              };
+          }
+      }
+   }
+};
+var wsdl = fs.readFileSync(__dirname + '/wsdl/PurchaseOrderServiceV2.wsdl', 'utf-8').toString();
+server = express();
+
+soapServer = soap.listen(server, '/', service, wsdl)
+
+exports.stockquote = functions.https.onRequest(server)

@@ -1,12 +1,11 @@
 import React, {Component} from 'react';
-import BlogSection from './BlogSection';
 
 class Posts extends Component {
     render() {
-        return(
+        return( 
             <div className="col-lg-4 col-md-4 col-sm-6">
-                <div className="fh5co-blog animate-box">
-                    <img className="img-responsive" src="images\leo-rivas-R_BLOGXpsOg-unsplash.jpg" alt="" />
+                <div className="fh5co-blog" /*animate-box"*/ >
+                    <img className="img-responsive" src={"images/" + this.props.img} alt="" />
                     <div className="blog-text">
                         <div className="prod-title">
                             <h3>{this.props.title}</h3>
