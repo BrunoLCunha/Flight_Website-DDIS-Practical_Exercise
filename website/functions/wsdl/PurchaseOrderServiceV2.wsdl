@@ -1,0 +1,11 @@
+<wsdl:operation name="getPurchaseOrder">
+  <wsdl:input message="tns:PurchaseOrderService_getPurchaseOrder"/>
+  <wsdl:output message="tns:PurchaseOrderService_getPurchaseOrderResponse"/>
+  <wsdl:fault name="ServiceException" message="errors:ServiceException"/>
+</wsdl:operation>
+             :
+
+<wsdl:service name="PurchaseOrderService">
+  <wsdl:port name="PurchaseOrderServiceSoapHttpPort" binding="tns:PurchaseOrderServiceSoapHttp">
+    <soap:address location="https://efqf-test.prc.us6.oraclecloud.com:443/prcPoEditDocumentOrder/PurchaseOrderServiceV2"/>
+             :
