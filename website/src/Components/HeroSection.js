@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { Redirect } from 'react-router';
+import HotelSearch from './HotelSearch';
 
 class HeroSection extends Component {
 
@@ -63,7 +64,6 @@ class HeroSection extends Component {
 																		}}} />
 		}
         return(
-			
             <div className="fh5co-hero">
 			<script src="https://api.mqcdn.com/sdk/place-search-js/v1.0.0/place-search.js"></script>
 			<div className="fh5co-overlay"></div>
@@ -72,7 +72,7 @@ class HeroSection extends Component {
 					<div className="container">
 						<div className="row">
 							<div className="col-sm-5 col-md-5">
-									<form onSubmit={this.search}>
+									
 									<div className="tabulation animate-box">
 
 									{/*Nav tabs*/}
@@ -90,58 +90,60 @@ class HeroSection extends Component {
 									
 
 										{/*Tab panes*/}
+										
 										<div className="tab-content">
-										<div role="tabpanel" className="tab-pane active" id="flights">
-											<div className="row">
-												<div className="col-xxs-12 col-xs-12 mt">
-													<div className="input-field">
-														<label htmlFor="from">Origem:</label>
-														<input 
-															type="text" 
-															className="form-control" 
-															id="place-search-input" 
-															placeholder="País ou cidade"
-															required="required" 
-															data-validation-required-message="Please enter your departure origin" 													
-															onInput={(e) => this.setState({from: e.target.value})}
-														/>
-													</div>
-												</div>
-												<div className="col-xxs-12 col-xs-12 mt">
-													<div className="input-field">
-														<label htmlFor="from">Destino:</label>
-														<input 
-															type="text" 
-															className="form-control" 
-															id="from-place_0" 
-															placeholder="País ou cidade"															
-															onInput={(e) => this.setState({to: e.target.value})}
-														/>
-													</div>
-												</div>
-												<div className="col-xxs-12 col-xs-6 mt alternate">
-													<div className="input-field">
-														<label htmlFor="date-start">Ida:</label>
-														<input 
-															type="date"
-															id="date-start"
-															value={this.state.dateGo}
-															onChange={(e) => this.setState({dateGo: e.target.value})}
-														/>
-													</div>
-												</div>
-												<div className="col-xxs-12 col-xs-6 mt alternate">
-													<div className="input-field">
-														<label htmlFor="date-end">Volta:</label>
-														<input 
-															type="date" 
-															id="date-end" 
-															value={this.state.dateBack}
-															onChange={(e) => this.setState({dateBack: e.target.value})}
-														/>
-													</div>
-												</div>
-												{/*<div className="col-sm-12 mt">
+											<div role="tabpanel" className="tab-pane active" id="flights">
+												<form onSubmit={this.search}>
+													<div className="row">
+														<div className="col-xxs-12 col-xs-12 mt">
+															<div className="input-field">
+																<label htmlFor="from">Origem:</label>
+																<input
+																	type="text"
+																	className="form-control"
+																	id="place-search-input"
+																	placeholder="País ou cidade"
+																	required="required"
+																	data-validation-required-message="Please enter your departure origin"
+																	onInput={(e) => this.setState({ from: e.target.value })}
+																/>
+															</div>
+														</div>
+														<div className="col-xxs-12 col-xs-12 mt">
+															<div className="input-field">
+																<label htmlFor="from">Destino:</label>
+																<input
+																	type="text"
+																	className="form-control"
+																	id="from-place_0"
+																	placeholder="País ou cidade"
+																	onInput={(e) => this.setState({ to: e.target.value })}
+																/>
+															</div>
+														</div>
+														<div className="col-xxs-12 col-xs-6 mt alternate">
+															<div className="input-field">
+																<label htmlFor="date-start">Ida:</label>
+																<input
+																	type="date"
+																	id="date-start"
+																	value={this.state.dateGo}
+																	onChange={(e) => this.setState({ dateGo: e.target.value })}
+																/>
+															</div>
+														</div>
+														<div className="col-xxs-12 col-xs-6 mt alternate">
+															<div className="input-field">
+																<label htmlFor="date-end">Volta:</label>
+																<input
+																	type="date"
+																	id="date-end"
+																	value={this.state.dateBack}
+																	onChange={(e) => this.setState({ dateBack: e.target.value })}
+																/>
+															</div>
+														</div>
+														{/*<div className="col-sm-12 mt">
 													<section>
 														<label htmlFor="className">Classe:</label>
 														<select className="cs-select cs-skin-border">
@@ -173,69 +175,14 @@ class HeroSection extends Component {
 														</select>
 													</section>
 												</div>*/}
-												<div className="col-xs-12">
-													<input type="submit" className="btn btn-primary btn-block" value="Buscar vôos" />
-												</div>
+														<div className="col-xs-12">
+															<input type="submit" className="btn btn-primary btn-block" value="Buscar vôos" />
+														</div>
+													</div>
+												</form>
 											</div>
-										</div>
 
-										<div role="tabpanel" className="tab-pane" id="hotels">
-											<div className="row">
-												<div className="col-xxs-12 col-xs-12 mt">
-													<div className="input-field">
-														<label htmlFor="from">Cidade:</label>
-														<input type="text" className="form-control" id="to-place_0" placeholder="Los Angeles, USA"/>
-													</div>
-												</div>
-												<div className="col-xxs-12 col-xs-6 mt alternate">
-													<div className="input-field">
-														<label htmlFor="date-start">Check In:</label>
-														<input type="date" id="date-start"/>
-													</div>
-												</div>
-												<div className="col-xxs-12 col-xs-6 mt alternate">
-													<div className="input-field">
-														<label htmlFor="date-end">Check Out:</label>
-														<input type="date" id="date-end"/>
-													</div>
-												</div>
-												<div className="col-sm-12 mt">
-													<section>
-														<label htmlFor="className">Quartos:</label>
-														<select className="cs-select cs-skin-border">
-															<option value="" defaultValue>1</option>
-															<option value="first">2</option>
-															<option value="business">3</option>
-														</select>
-													</section>
-												</div>
-												<div className="col-xxs-12 col-xs-6 mt">
-													<section>
-														<label htmlFor="className">Adultos:</label>
-														<select className="cs-select cs-skin-border">
-															<option value="" defaultValue>1</option>
-															<option value="2">2</option>
-															<option value="3">3</option>
-															<option value="4">4</option>
-														</select>
-													</section>
-												</div>
-												<div className="col-xxs-12 col-xs-6 mt">
-													<section>
-														<label htmlFor="className">Crianças:</label>
-														<select className="cs-select cs-skin-border">
-															<option value="" defaultValue>1</option>
-															<option value="2">2</option>
-															<option value="3">3</option>
-															<option value="4">4</option>
-														</select>
-													</section>
-												</div>
-												<div className="col-xs-12">
-													<input type="submit" className="btn btn-primary btn-block" value="Buscar hotéis" />
-												</div>
-											</div>
-										</div>
+										<HotelSearch/>
 
 										<div role="tabpanel" className="tab-pane" id="packages">
 											<div className="row">
@@ -303,7 +250,6 @@ class HeroSection extends Component {
 										</div>
 
 									</div>
-								</form>
 							</div>
 							<div className="desc2 animate-box">
 								<div className="col-sm-7 col-sm-push-1 col-md-7 col-md-push-1">
