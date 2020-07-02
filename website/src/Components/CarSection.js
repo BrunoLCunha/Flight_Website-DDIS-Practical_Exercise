@@ -21,7 +21,7 @@ class CarSection extends Component {
 
 		//var options = { endpoint: url.replace('?wsdl','/')};
 		var requestArgs = { userName: "TEST_USER" };
-		soap.createClient(url, function(err, client) {
+		soap.createClient(url, { mode: 'no-cors'}, function(err, client) {
 			if (err) {
 				console.error("An error has occurred creating SOAP client: " , err);  
 			} else {
