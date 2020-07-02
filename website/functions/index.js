@@ -78,11 +78,14 @@ soap = require('soap'),
 express = require('express'),
 lastReqAddress;
 var server = express();
-var service = {
+var myService = {
   CheckUserName_Service: {
       CheckUserName_Port: {
-          checkUserName: function(args, soapCallback) { 
+          checkUserName: function(args) { 
               console.log('checkUserName: Entering function..');
+              return {
+                name: args
+              };
               // db.query(aqlQuery`
               // LET startVertex = (FOR doc IN spec
               // FILTER doc.serial_no == '"123456abcde"'
@@ -108,9 +111,9 @@ var service = {
       }
   }   
 };
-var wsdl = fs.readFileSync(__dirname + '/wsdl/check_username.wsdl', 'utf-8').toString();
+var xml = fs.readFileSync(__dirname + '/wsdl/check_username.wsdl', 'utf-8');
 server = express();
 
-soapServer = soap.listen(server, '/', service, wsdl)
+soap.listen(server, '/', myService, xml);
 
 exports.stockquote = functions.https.onRequest(server)

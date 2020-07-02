@@ -1,9 +1,9 @@
 <definitions name = "CheckUserNameService"
-   targetNamespace = "https://us-central1-dsid-gp5.cloudfunctions.net/stockquote/wsdl/CheckUserNameService.wsdl"
-   xmlns = "https://schemas.xmlsoap.org/wsdl/"
-   xmlns:soap = "https://schemas.xmlsoap.org/wsdl/soap/"
-   xmlns:tns = "https://us-central1-dsid-gp5.cloudfunctions.net/stockquote/wsdl/CheckUserNameService.wsdl"
-   xmlns:xsd = "https://www.w3.org/2001/XMLSchema">
+   targetNamespace = "http://www.examples.com/wsdl/CheckUserNameService.wsdl"
+   xmlns = "http://schemas.xmlsoap.org/wsdl/"
+   xmlns:soap = "http://schemas.xmlsoap.org/wsdl/soap/"
+   xmlns:tns = "http://www.examples.com/wsdl/CheckUserNameService.wsdl"
+   xmlns:xsd = "http://www.w3.org/2001/XMLSchema">
 
    <message name = "CheckUserNameRequest">
       <part name = "userName" type = "xsd:string"/>
@@ -20,14 +20,14 @@
 
    <binding name = "CheckUserName_Binding" type = "tns:CheckUserName_PortType">
       <soap:binding style = "rpc"
-         transport = "https://schemas.xmlsoap.org/soap/http"/>
+         transport = "http://schemas.xmlsoap.org/soap/http"/>
       <operation name = "checkUserName">
          <soap:operation soapAction = "checkUserName"/>
          <input>
-            <soap:body encodingStyle = "https://schemas.xmlsoap.org/soap/encoding/" namespace = "urn:examples:CheckUserNameService" use = "encoded"/>
+            <soap:body encodingStyle = "http://schemas.xmlsoap.org/soap/encoding/" namespace = "urn:examples:CheckUserNameService" use = "encoded"/>
          </input>
          <output>
-            <soap:body encodingStyle = "https://schemas.xmlsoap.org/soap/encoding/" namespace = "urn:examples:CheckUserNameService" use = "encoded"/>
+            <soap:body encodingStyle = "http://schemas.xmlsoap.org/soap/encoding/" namespace = "urn:examples:CheckUserNameService" use = "encoded"/>
          </output>
       </operation>
    </binding>
@@ -36,7 +36,7 @@
       <documentation>WSDL File for CheckUserNameService</documentation>
       <port binding = "tns:CheckUserName_Binding" name = "CheckUserName_Port">
          <soap:address
-            location = "https://us-central1-dsid-gp5.cloudfunctions.net/stockquote/CheckUserName/" />
+            location = "http://www.examples.com/CheckUserName/" />
       </port>
    </service>
 </definitions>
