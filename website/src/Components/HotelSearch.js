@@ -34,6 +34,14 @@ class HotelSearch extends Component{
         this.setState({ redirect: true })
     }
     
+    componentDidMount(){
+        window.placeSearch({
+			key: 'AnXghgF4e4yW5GdvGL98x0v6MsoXeA3A',
+			container: document.querySelector('#to-place_0'),
+			collection: ['adminArea']
+		  });
+    }
+
     render() {
         return(
             <div role="tabpanel" className="tab-pane" id="hotels">

@@ -31,12 +31,6 @@ class HeroSection extends Component {
 
 		  window.placeSearch({
 			key: 'AnXghgF4e4yW5GdvGL98x0v6MsoXeA3A',
-			container: document.querySelector('#to-place_0'),
-			collection: ['adminArea']
-		  });
-
-		  window.placeSearch({
-			key: 'AnXghgF4e4yW5GdvGL98x0v6MsoXeA3A',
 			container: document.querySelector('#from-place_pk'),
 			collection: ['adminArea']
 		  });
