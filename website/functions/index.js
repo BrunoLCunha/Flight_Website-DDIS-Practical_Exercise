@@ -79,18 +79,36 @@ express = require('express'),
 lastReqAddress;
 var server = express();
 var service = {
-  PurchaseOrderService: {
-      PurchaseOrderServiceSoapHttpPort: {
-          getPurchaseOrder: function(args) {
-              console.log(args);
-              return {
-                  name: args.name
-              };
+  CheckUserName_Service: {
+      CheckUserName_Port: {
+          checkUserName: function(args, soapCallback) { 
+              console.log('checkUserName: Entering function..');
+              // db.query(aqlQuery`
+              // LET startVertex = (FOR doc IN spec
+              // FILTER doc.serial_no == '"123456abcde"'
+              // LIMIT 2
+              // RETURN doc
+              // )[0]
+
+              // FOR v IN 1 ANY startVertex belongs_to
+              // RETURN v.ip`,
+              // {
+              // bindVar1: 'value',
+              // bindVar2: 'value',
+              // }
+              // ).then(function(response) {
+              //     console.log(`Retrieved documents.`, response._result);
+              //     soapCallback(JSON.stringify(response._result));
+              // })
+              // .catch(function(error) {
+              //     console.error('Error getting document', error);
+              //     soapCallback('Error getting document' + error.message);
+              // });
           }
       }
-   }
+  }   
 };
-var wsdl = fs.readFileSync(__dirname + '/wsdl/PurchaseOrderServiceV2.wsdl', 'utf-8').toString();
+var wsdl = fs.readFileSync(__dirname + '/wsdl/check_username.wsdl', 'utf-8').toString();
 server = express();
 
 soapServer = soap.listen(server, '/', service, wsdl)

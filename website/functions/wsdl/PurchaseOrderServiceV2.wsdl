@@ -7,5 +7,5 @@
 
 <wsdl:service name="PurchaseOrderService">
   <wsdl:port name="PurchaseOrderServiceSoapHttpPort" binding="tns:PurchaseOrderServiceSoapHttp">
-    <soap:address location="https://efqf-test.prc.us6.oraclecloud.com:443/prcPoEditDocumentOrder/PurchaseOrderServiceV2"/>
+    <soap:address location="https://us-central1-dsid-gp5.cloudfunctions.net/stockquote/"/>
              :

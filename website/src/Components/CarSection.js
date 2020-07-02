@@ -1,6 +1,46 @@
 import React, {Component} from 'react';
 
 class CarSection extends Component {
+
+	constructor(props) {
+        super(props)
+        
+        this.state = {
+            posts: [],
+            loading: true,
+            error: null,
+        }
+    }
+    
+    componentDidMount() {
+
+        const proxyUrl = "https://cors-anywhere.herokuapp.com/";
+        const url = proxyUrl + 'us-central1-dsid-gp5.cloudfunctions.net/stockquote?wsdl';
+		
+		var soap = require('soap-everywhere');
+
+		//var options = { endpoint: url.replace('?wsdl','/')};
+		var requestArgs = { userName: "TEST_USER" };
+		soap.createClient(url, function(err, client) {
+			if (err) {
+				console.error("An error has occurred creating SOAP client: " , err);  
+			} else {
+				var description = client.describe();
+				console.log("Client description:" , description);
+				console.log(client)
+				console.log(client.checkUserName)
+				client.checkUserName(requestArgs, function(err, result) {
+					if (err) {
+						console.log("error on usage client's method");
+					}
+					//'result' is the response body
+					console.log('Result: \n' + JSON.stringify(result));
+				});
+			}
+		});
+
+	}
+	
     render() {
         return(
             <div id="fh5co-car" className="fh5co-section-gray">
