@@ -54,7 +54,7 @@ class HotelSearch extends Component{
                             <div className="input-field">
                                 <label htmlFor="date-start">Check In:</label>
                                 <input type="date"
-                                    id="date-start"
+                                    id="date-start_h"
                                     required='required'
                                     onInput={(e) => this.setState({ in: e.target.value })} />
                             </div>
@@ -63,7 +63,7 @@ class HotelSearch extends Component{
                             <div className="input-field">
                                 <label htmlFor="date-end">Check Out:</label>
                                 <input type="date"
-                                    id="date-end"
+                                    id="date-end_h"
                                     required='required'
                                     onInput={(e) => this.setState({ out: e.target.value })} />
                             </div>

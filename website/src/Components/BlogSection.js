@@ -39,7 +39,7 @@ class BlogSection extends Component {
             // return <div>{this.state.error}</div>;
         }
 
-        if (this.state.posts.length == 0) {
+        if (this.state.posts.length === 0) {
             return <div>Nenhum dado foi pego da API</div>
         }
 

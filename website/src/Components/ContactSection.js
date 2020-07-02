@@ -12,7 +12,7 @@ class ContactSection extends Component {
 						<p>Site construído pelo grupo 5 da turma 2020104 da matéria DSID.</p>
 					</div>
 				</div>
-				<form action="#">
+				<form>
 					<div >
 						<div className="col-md-6">
 							<h3 className="section-title">Endereço</h3>
@@ -20,7 +20,7 @@ class ContactSection extends Component {
 							<ul className="contact-info">
 								<li><i className="icon-location-pin"></i>Rua Arlindo Béttio, 1000 - Ermelino Matarazzo, São Paulo - SP, 03828-000</li>
 								<li><i className="icon-phone2"></i>+55 11 91234-5678</li>
-								<li><i className="icon-mail"></i><a href="#">DSID5@usp.br</a></li>
+								<li><i className="icon-mail"></i>DSID5@usp.br</li>
 								<li><i className="icon-globe2"></i><a href="http://www5.each.usp.br/">each.usp.br</a></li>
 							</ul>
 						</div>

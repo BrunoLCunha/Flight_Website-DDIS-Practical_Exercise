@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
+import React from 'react';
 import './App.css';
-import LoginPage from './LoginPage';
+//import LoginPage from './LoginPage';
 import PageWrapper from './Components/PageWrapper';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import TourSection_Flight from './Components/TourSection_Flight';
