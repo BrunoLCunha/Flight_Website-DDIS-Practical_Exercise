@@ -13,6 +13,7 @@ import NavBar from './Components/Header';
 import Foot from './Components/FooterSection';
 import FlightsResult from './Components/FlightsResult';
 import DeadEnd from './Components/DeadEnd';
+import test from './Components/test';
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
      <Route exact path="/contact" component={ContactSection}/>
      <Route exact path='/flights-result' component={FlightsResult} />
      <Route exact path="/deadend" component={DeadEnd} />
+     <Route exact path="/test" component={test} />
      <Foot/>
      </div>
    </Router>
