@@ -55,7 +55,10 @@ class HotelSearch extends Component{
                                     id="to-place_0"
                                     placeholder="Los Angeles, USA"
                                     required="required"
+                                    onChange={(e) => this.setState({ city: e.target.value })} 
+									onBlur={(e) => this.setState({ city: e.target.value })}
                                     onInput={(e) => this.setState({ city: e.target.value })} />
+                                    
                             </div>
                         </div>
                         <div className="col-xxs-12 col-xs-6 mt alternate">
