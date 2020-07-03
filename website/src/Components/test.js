@@ -58,7 +58,8 @@ class Example extends Component {
       "method": "GET",
       "headers": {
           "x-rapidapi-host": "hotels4.p.rapidapi.com",
-          "x-rapidapi-key": "b3ddd45209mshfc5865161902981p1e37e8jsncb32cbffe0b0"
+          //"x-rapidapi-key": "b3ddd45209mshfc5865161902981p1e37e8jsncb32cbffe0b0" //chave para produção, não usar durante testes
+          "x-rapidapi-key": "067ca53d19msh58ef10ec948cfdep189ccajsn281d28dc165b" //chave pra teste
       }
   })
       .then(response => response.json())
