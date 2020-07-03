@@ -12,7 +12,12 @@ code {
     monospace;
 }
 
-#explain, #explain[label]{
+.explain-row, .explain-row label {
+  margin: 10px;
+  padding-left: 25px;
   text-align: center;
-  color: black;
+}
+
+.explain-row .button-fly-search {
+  
 }
