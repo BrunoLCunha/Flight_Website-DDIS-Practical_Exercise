@@ -72,7 +72,7 @@ class HeroSection extends Component {
 									{/*Nav tabs*/}
 									<ul className="nav nav-tabs" role="tablist">
 										<li role="presentation" className="active">
-											<a href="#flights" aria-controls="flights" role="tab" data-toggle="tab">Vôos</a>
+											<a href="#flights" aria-controls="flights" role="tab" data-toggle="tab">Voos</a>
 										</li>
 										<li role="presentation">
 											<a href="#hotels" aria-controls="hotels" role="tab" data-toggle="tab">Hotéis</a>
@@ -99,7 +99,8 @@ class HeroSection extends Component {
 																	placeholder="País ou cidade"
 																	required="required"
 																	data-validation-required-message="Please enter your departure origin"
-																	onInput={(e) => this.setState({ from: e.target.value })}
+																	onChange={(e) => this.setState({ from: e.target.value })} 
+																	onBlur={(e) => this.setState({ from: e.target.value })}
 																/>
 															</div>
 														</div>
@@ -111,7 +112,8 @@ class HeroSection extends Component {
 																	className="form-control"
 																	id="from-place_0"
 																	placeholder="País ou cidade"
-																	onInput={(e) => this.setState({ to: e.target.value })}
+																	onChange={(e) => this.setState({ to: e.target.value })} 
+																	onBlur={(e) => this.setState({ to: e.target.value })}
 																/>
 															</div>
 														</div>
@@ -170,7 +172,7 @@ class HeroSection extends Component {
 													</section>
 												</div>*/}
 														<div className="col-xs-12">
-															<input type="submit" className="btn btn-primary btn-block" value="Buscar vôos" />
+															<input type="submit" className="btn btn-primary btn-block" value="Buscar voos" />
 														</div>
 													</div>
 												</form>

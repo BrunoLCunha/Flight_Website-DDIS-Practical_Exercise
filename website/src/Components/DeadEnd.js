@@ -10,7 +10,7 @@ class DeadEnd extends Component{
                     <p>Parece que você chegou no fim do caminho.</p>
                     <p>Ainda não vendemos passagens aéreas e essas coisas, mas você pode nos contar se gostou do que viu até aqui.</p>
                     <p><a className="btn btn-primary btn-outline btn-lg" href="/contact">Fale com a gente <i className="icon-arrow-right22"></i></a></p>
-                    <p><a className="btn btn-primary btn-outline btn-lg" href="/home"><i className="icon-arrow-left22"></i> Volte para o começo</a></p>
+                    <p><a className="btn btn-primary btn-outline btn-lg" href="/"><i className="icon-arrow-left22"></i> Volte para o começo</a></p>
                 </div>
             </div>
         )
