@@ -76,44 +76,32 @@ exports.api = functions.https.onRequest(app)
 var fs = require('fs'),
 soap = require('soap'),
 express = require('express'),
+cors = require('cors'),
 lastReqAddress;
 var server = express();
 var myService = {
-  CheckUserName_Service: {
-      CheckUserName_Port: {
-          checkUserName: function(args) { 
-              console.log('checkUserName: Entering function..');
-              return {
-                name: args
-              };
-              // db.query(aqlQuery`
-              // LET startVertex = (FOR doc IN spec
-              // FILTER doc.serial_no == '"123456abcde"'
-              // LIMIT 2
-              // RETURN doc
-              // )[0]
+  ws: {
+    calc: {
+        sumar : function(args) {
+            var n = 1*args.a + 1*args.b;
+            return { sumres : n };
+        },
 
-              // FOR v IN 1 ANY startVertex belongs_to
-              // RETURN v.ip`,
-              // {
-              // bindVar1: 'value',
-              // bindVar2: 'value',
-              // }
-              // ).then(function(response) {
-              //     console.log(`Retrieved documents.`, response._result);
-              //     soapCallback(JSON.stringify(response._result));
-              // })
-              // .catch(function(error) {
-              //     console.error('Error getting document', error);
-              //     soapCallback('Error getting document' + error.message);
-              // });
-          }
-      }
-  }   
+        multiplicar : function(args) {
+            var n = parseInt(args.a) * parseInt(args.b);
+            return { mulres : n };
+        }
+    }
+}
 };
-var xml = fs.readFileSync(__dirname + '/wsdl/check_username.wsdl', 'utf-8');
+var xml = fs.readFileSync(__dirname + '/wsdl/wscalc1.wsdl', 'utf-8');
 server = express();
-
+server.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+next();
+});
+server.options('*', cors()); 
 soap.listen(server, '/', myService, xml);
 
 exports.stockquote = functions.https.onRequest(server)

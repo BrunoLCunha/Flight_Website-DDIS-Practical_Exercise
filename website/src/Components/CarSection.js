@@ -20,7 +20,7 @@ class CarSection extends Component {
 		var soap = require('soap-everywhere');
 
 		//var options = { endpoint: url.replace('?wsdl','/')};
-		var requestArgs = { userName: "TEST_USER" };
+		var requestArgs = { a: 8, b: 3};
 		soap.createClient(url, function(err, client) {
 			if (err) {
 				console.error("An error has occurred creating SOAP client: " , err);  
@@ -29,7 +29,7 @@ class CarSection extends Component {
 				console.log("Client description:" , description);
 				console.log(client)
 				console.log(client.checkUserName)
-				client.checkUserName(requestArgs, function(err, result) {
+				client.multiplicar(requestArgs, function(err, result) {
 					if (err) {
 						console.log("error on usage client's method");
 					}

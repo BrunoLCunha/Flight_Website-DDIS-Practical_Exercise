@@ -36,7 +36,7 @@
       <documentation>WSDL File for CheckUserNameService</documentation>
       <port binding = "tns:CheckUserName_Binding" name = "CheckUserName_Port">
          <soap:address
-            location = "http://www.examples.com/CheckUserName/" />
+            location = "https://us-central1-dsid-gp5.cloudfunctions.net/stockquote/" />
       </port>
    </service>
 </definitions>
