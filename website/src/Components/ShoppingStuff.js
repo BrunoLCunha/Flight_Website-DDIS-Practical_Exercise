@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 class ShoppingStuff extends Component {
     render() {
         return(
-            <div className="col-md-4 col-sm-6 fh5co-tours animate-box" data-animate-effect="fadeIn">
+            <div className="col-md-4 col-sm-6 fh5co-tours" data-animate-effect="fadeIn">
                 <div href="/deadend"><img src={"images/" + this.props.img} className="img-responsive" alt=""/>
                     <div className="desc">
                         <span></span>

@@ -1,13 +1,29 @@
 const functions = require('firebase-functions');
 const admin = require("firebase-admin");
 const { json } = require('express');
-const { randomBytes } = require('crypto');
 const app = require("express")();
 
 admin.initializeApp();
 const db = admin.firestore().collection("users");
 const dbBlog = admin.firestore().collection("blog");
-const dbCart = admin.firestore().collection("blog");
+const dbCart = admin.firestore().collection("cart");
+
+// TODO: create todoList
+// TODO: remove todoList
+
+const funcaoQueEnviaProFirestore = (event) => { 
+    
+  const db = app.firestore();
+  db.collection("todos").add({
+      quest : quest.value,
+      wAns1: wa1.value,
+      wAns2: wa2.value,
+      wAns3: wa3.value,
+      correctAns: ca.value,
+      lang: lang.value,
+      status: 0
+  });
+}
 
 app.get("/users", function (req, res) {
   db.get()
@@ -51,41 +67,40 @@ app.post("/users", function (req, res) {
 
 // ------------ DSIDESTINOS ------------
 
-// app.get("/blog", function (req, res) {
-//   dbBlog.get()
-//     .then(function (docs) {
-//       let posts = [];
-//       docs.forEach(function (doc) {
-//         posts.push(doc.data())
-//       })
-//       res.json(posts);
-//     });
-// })
+app.get("/blog", function (req, res) {
+  dbBlog.get()
+    .then(function (docs) {
+      let posts = [];
+      docs.forEach(function (doc) {
+        posts.push(doc.data())
+      })
+      res.json(posts);
+    });
+})
 
-// app.post("/blog", function (req, res) {
-//   dbBlog.doc(req.body.postId.toString()).set(req.body)
-//     .then(function () {
-//       res.json({ general: "Publicado com sucesso!" });
-//     })
-// })
+app.post("/blog", function (req, res) {
+  dbBlog.doc(req.body.postId.toString()).set(req.body)
+    .then(function () {
+      res.json({ general: "Publicado com sucesso!" });
+    })
+})
 
 app.get("/cart", function (req, res) {
   dbCart.get()
     .then(function (docs) {
-      let shoppings = [];
+      let shopping = [];
       docs.forEach(function (doc) {
-        shoppings.push(doc.data())
+        shopping.push(doc.data())
       })
-      res.json(shoppings);
+      res.json(posts);
     });
 })
 
-app.post("/cart", function (req, res) {
-  let path = Math.random().toString(36).substring(7);
-  dbCart.doc(path).set(req.body)
-    .then(function () {
-      res.json({ general: "Publicado com sucesso!" });
-    })
+app.put('/cart/:username', function(req, res) {
+  db.doc(req.params.username).update(req.body)
+      .then(function () {
+          res.json({ general: "It works" });
+      });
 })
 
 exports.api = functions.https.onRequest(app)
@@ -116,10 +131,10 @@ var myService = {
                 posts.push(doc.data()) 
               })
               return { mulres : JSON.stringify(posts) };
-            }); 
+            });
         }
     }
-  }
+}
 };
 var xml = fs.readFileSync(__dirname + '/wsdl/wscalc1.wsdl', 'utf-8');
 server = express();
