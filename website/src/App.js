@@ -14,6 +14,7 @@ import Foot from './Components/FooterSection';
 import FlightsResult from './Components/FlightsResult';
 import DeadEnd from './Components/DeadEnd';
 import test from './Components/test';
+import ShoppingCart from './Components/ShoppingCart';
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
      <Route exact path='/flights-result' component={FlightsResult} />
      <Route exact path="/deadend" component={DeadEnd} />
      <Route exact path="/test" component={test} />
+     <Route exact path="/cart" component={ShoppingCart} />
      <Foot/>
      </div>
    </Router>
