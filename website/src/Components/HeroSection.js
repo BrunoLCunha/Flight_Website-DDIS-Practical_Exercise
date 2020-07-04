@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import { Redirect } from 'react-router';
-import HotelSearch from './HotelSearch';
 
 class HeroSection extends Component {
 
@@ -8,11 +7,19 @@ class HeroSection extends Component {
 		super(props)
 
 		this.state = {
+			redirect: false,
+			type: 'flight',
+
+			//flight
 			from: '',
 			to: '',
 			dateGo: '',
 			dateBack: '',
-			redirect: false
+
+			//hotel
+			city: '',
+			checkIn: '',
+			checkOut: ''
 		}
 	}
 
@@ -42,20 +49,35 @@ class HeroSection extends Component {
 		  });
 	}
 
-	search = (e) => {
+	searchFlight = (e) => {
 		e.preventDefault();
-		this.setState({redirect: true})
+		this.setState({redirect: true, type: 'flight'})
+	}
+
+	searchHotel = (e) => {
+		e.preventDefault();
+		this.setState({redirect: true, type: 'hotel'})
 	}
 
     render() {
 
 	
 		if (this.state.redirect) {
-			return	<Redirect to={{pathname: '/flights-result', state: {from: this.state.from, 
-																		to: this.state.to, 
-																		dateGo: this.state.dateGo ? this.state.dateGo : 'anytime',
-																		dateBack: this.state.dateBack ? this.state.dateBack : 'anytime',
-																		}}} />
+			if (this.state.type == 'flight') {
+				return	<Redirect to={{pathname: '/flights-result', state: {from: this.state.from, 
+							to: this.state.to, 
+							dateGo: this.state.dateGo ? this.state.dateGo : 'anytime',
+							dateBack: this.state.dateBack ? this.state.dateBack : 'anytime',
+							}}} />
+			}
+			if (this.state.type == 'hotel') {
+				console.log(this.state)
+				return	<Redirect to={{pathname: '/hotels-result', state: {city: this.state.city, 
+					checkIn: this.state.checkIn, 
+					checkOut: this.state.checkOut
+					}}} />
+			}
+			
 		}
         return(
             <div className="fh5co-hero">
@@ -87,7 +109,7 @@ class HeroSection extends Component {
 										
 										<div className="tab-content">
 											<div role="tabpanel" className="tab-pane active" id="flights">
-												<form onSubmit={this.search}>
+												<form onSubmit={this.searchFlight}>
 													<div className="row">
 														<div className="col-xxs-12 col-xs-12 mt">
 															<div className="input-field">
@@ -178,7 +200,88 @@ class HeroSection extends Component {
 												</form>
 											</div>
 
-										<HotelSearch/>
+											<div role="tabpanel" className="tab-pane" id="hotels">
+												<form onSubmit={this.searchHotel}>
+													<div className="row">
+														<div className="col-xxs-12 col-xs-12 mt">
+															<div className="input-field">
+																<label htmlFor="from">Cidade:</label>
+																<input
+																	onChange={(e) => this.setState({ from: e.target.value })} 
+																	onBlur={(e) => this.setState({ from: e.target.value })}
+
+																	type="text"
+																	className="form-control"
+																	id="to-place_0"
+																	placeholder="Los Angeles, USA"
+																	required="required"
+																	onChange={(e) => this.setState({ city: e.target.value })} 
+																	onBlur={(e) => this.setState({ city: e.target.value })}
+																/>
+																	
+															</div>
+														</div>
+														<div className="col-xxs-12 col-xs-6 mt alternate">
+															<div className="input-field">
+																<label htmlFor="date-start">Check In:</label>
+																<input type="date"
+																	id="date-start_h"
+																	//required='required'
+																	onInput={(e) => this.setState({ in: e.target.value })} />
+															</div>
+														</div>
+														<div className="col-xxs-12 col-xs-6 mt alternate">
+															<div className="input-field">
+																<label htmlFor="date-end">Check Out:</label>
+																<input type="date"
+																	id="date-end_h"
+																	//required='required'
+																	onInput={(e) => this.setState({ out: e.target.value })} />
+															</div>
+														</div>
+														{/*<div className="col-sm-12 mt">
+															<section>
+																<label htmlFor="className">Quartos:</label>
+																<select className="cs-select cs-skin-border"
+																	required='required'
+																	onInput={(e) => this.setState({ rooms: e.target.value })}>
+																	<option value="economy">1</option>
+																	<option value="first">2</option>
+																	<option value="business">3</option>
+																</select>
+															</section>
+														</div>
+														<div className="col-xxs-12 col-xs-6 mt">
+															<section>
+																<label htmlFor="className">Adultos:</label>
+																<select className="cs-select cs-skin-border"
+																	required='required'
+																	onInput={(e) => this.setState({ adults: e.target.value })}>
+																	<option value="1">1</option>
+																	<option value="2">2</option>
+																	<option value="3">3</option>
+																	<option value="4">4</option>
+																</select>
+															</section>
+														</div>
+														<div className="col-xxs-12 col-xs-6 mt">
+															<section>
+																<label htmlFor="className">Crianças:</label>
+																<select className="cs-select cs-skin-border"
+																	onInput={(e) => this.setState({ children: e.target.value })}>
+																	<option value="1">1</option>
+																	<option value="2">2</option>
+																	<option value="3">3</option>
+																	<option value="4">4</option>
+																</select>
+															</section>
+														</div>*/}
+														<div className="col-xs-12">
+															<input type="submit" className="btn btn-primary btn-block" value="Buscar hotéis" />
+														</div>
+													</div>
+												</form>
+											</div>
 
 										<div role="tabpanel" className="tab-pane" id="packages">
 											<div className="row">

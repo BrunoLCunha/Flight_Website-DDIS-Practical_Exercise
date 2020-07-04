@@ -16,6 +16,7 @@ import DeadEnd from './Components/DeadEnd';
 import test from './Components/test';
 import ShoppingCart from './Components/ShoppingCart';
 import Crud from './Crud';
+import HotelsResult from './Components/HotelsResult';
 
 const App = () => {
   return (
@@ -31,7 +32,7 @@ const App = () => {
      <Route exact path="/contact" component={ContactSection}/>
      <Route exact path='/flights-result' component={FlightsResult} />
      <Route exact path="/deadend" component={DeadEnd} />
-     <Route exact path="/test" component={test} />
+     <Route exact path="/hotels-result" component={HotelsResult} />
      <Route exact path="/cart" component={ShoppingCart} />
      <Route exact path="/login" component={Crud} />
      <Foot/>

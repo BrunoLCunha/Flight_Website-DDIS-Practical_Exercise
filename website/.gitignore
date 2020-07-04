@@ -68,3 +68,4 @@ build/
 .env
 
 src/Components/rapidCredentials.js
+src/Components/rapidCredentials2.js
