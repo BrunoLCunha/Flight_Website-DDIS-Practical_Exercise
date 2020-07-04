@@ -57,7 +57,7 @@ class ShoppingCart extends Component {
                             <p>Você ainda não está logado. Que tal entrar em nosso sitema?</p>     
                             <p><a className="btn btn-primary btn-outline btn-lg" href="/fbl"><i className="icon-arrow-left22"></i> Fazer login</a></p>
                         </div>
-                        : null
+                        : <p><a className="btn btn-primary btn-outline btn-lg" href="/fbl"><i className="icon-arrow-left22"></i> Log out</a></p>
                     }
                 </div>
             </div>

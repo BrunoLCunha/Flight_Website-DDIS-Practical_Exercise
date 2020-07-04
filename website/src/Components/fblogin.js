@@ -21,9 +21,6 @@ const uiConfig = {
 
 class fblogin extends React.Component {
 
-  constructor(props) {
-    super(props)
-  }
 
   render() {
     return (
