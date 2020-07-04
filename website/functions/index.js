@@ -5,7 +5,8 @@ const app = require("express")();
 admin.initializeApp();
 const db = admin.firestore().collection("users");
 const dbBlog = admin.firestore().collection("blog");
-
+//Calma aí
+//Eu usei cloud no site tbm
 // TODO: create todoList
 // TODO: remove todoList
 

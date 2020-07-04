@@ -33,7 +33,7 @@ class CarSection extends Component {
 					if (err) {
 						console.log("error on usage client's method");
 					}
-					//'result' is the response body
+					//'result' is the response 
 					console.log('Result: \n' + JSON.stringify(result));
 				});
 			}

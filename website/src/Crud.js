@@ -75,6 +75,9 @@ class Crud extends Component {
     retrieve = (snapShot) => {
         if(!!snapShot && !!snapShot.val()){
             console.log(snapShot.val());
+            snapShot.val().foreach((item,index) => {
+                console.log(item)
+            })
         }else{
             console.log('No data found');
         }
