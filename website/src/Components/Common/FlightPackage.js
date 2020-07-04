@@ -10,7 +10,7 @@ class FlightPackage extends Component {
                         <h3>{this.props.name}</h3>
                         <span>{this.props.description}</span>
                         <span className="price">{this.props.price}</span>
-                        <a className="btn btn-primary btn-outline" href="/login">Reserve agora <i className="icon-arrow-right22"></i></a>
+                        <a className="btn btn-primary btn-outline" href="/fbl">Reserve agora <i className="icon-arrow-right22"></i></a>
                     </div>
                 </div>
             </div>
