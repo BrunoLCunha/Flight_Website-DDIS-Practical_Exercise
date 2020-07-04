@@ -4,7 +4,7 @@ class Hotel extends Component {
     render () {
         return(
             <div className="col-md-4 col-sm-6 fh5co-tours" data-animate-effect="fadeIn">
-                <div href="/deadend"><img src={this.props.photoUrl} className="img-responsive" alt=""/>
+                <div href="/deadend"><img src={this.props.photoUrl ? this.props.photoUrl : 'images/generic_hotel.jpg'} className="img-responsive" alt=""/>
                     <div className="desc">
                         <span className="price">{this.props.stars} <i className="icon-star"></i></span>
                         <h3>{this.props.name}</h3>
