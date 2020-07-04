@@ -6,22 +6,29 @@ class ContactSection extends Component {
         return(
             <div id="fh5co-contact" className="fh5co-section-gray">
 			<div className="container">
-				<div className="row">
-					<div >
-						<h3>Informação de Contato</h3>
-						<p>Site construído pelo grupo 5 da turma 2020104 da matéria DSID.</p>
+					<div>
+						<h3>Sobre Nós</h3>
+						<p>Site de viagens construído para o trabalho da disciplina DSID, ministrada pelo Prof. Dr. Fantinato.</p>
+						<h3>Sobre o projeto</h3>
+						<p>APIs disponibilizadas por 
+							<a href="https://rapidapi.com/"> RapidAPI</a>, 
+							<a href="https://rapidapi.com/apidojo/api/hotels4/endpoints"> apidojo</a> e 
+							<a href="https://rapidapi.com/skyscanner/api/skyscanner-flight-search"> Skyscanner</a>.
+							Imagens obtidas pelo <a href="https://unsplash.com">Unsplash</a>.
+							Template desenvolvido por <a href="https://freehtml5.co/">Free HTML5</a>.
+						</p>
 					</div>
-				</div>
 				<form>
 					<div >
 						<div className="col-md-6">
-							<h3 className="section-title">Endereço</h3>
-							<p>Escola de Artes, Ciências e Humanidades da Universidade de São Paulo.</p>
+							<h3 className="section-title">Contato</h3>
+							<p>Grupo 5</p>
 							<ul className="contact-info">
-								<li><i className="icon-location-pin"></i>Rua Arlindo Béttio, 1000 - Ermelino Matarazzo, São Paulo - SP, 03828-000</li>
-								<li><i className="icon-phone2"></i>+55 11 91234-5678</li>
-								<li><i className="icon-mail"></i>DSID5@usp.br</li>
-								<li><i className="icon-globe2"></i><a href="http://www5.each.usp.br/">each.usp.br</a></li>
+								<li><i class="fab fa-github"></i><a href="https://github.com/BrunoLCunha/Flight_Website-DDIS-Practical_Exercise">Projeto no Github</a></li>
+								<li><i className="icon-mail"></i><a href="mailto:bruno_cunha@usp.br">Bruno Cunha</a></li>
+								<li><i className="icon-mail"></i><a href="mailto:joaovicttor_a@usp.br">João Victor</a></li>
+								<li><i className="icon-mail"></i><a href="mailto:lincolnams4@usp.br">Lincoln Souza</a></li>
+								<li><i className="icon-mail"></i><a href="mailto:renan.ernesto@usp.br">Renan Ernesto</a></li>
 							</ul>
 						</div>
 						<div className="col-md-6">

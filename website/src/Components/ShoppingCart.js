@@ -38,7 +38,8 @@ class ShoppingCart extends Component {
                 </div>
             </div>
             {this.state.shopping.map((shopping, index) => {
-                if(shopping.username == 'firefork'){
+                console.log(shopping);
+                if(shopping.username == this.props.username){
                     return  <ShoppingStuff key={index}
                                 name={shopping.name}
                                 price={shopping.price}
@@ -47,8 +48,6 @@ class ShoppingCart extends Component {
                             />
                 }     
             })}
-            <ShoppingStuff name='Vôo' img='generic_airplane.jpg' description='BR-SP -> BR-RJ' price='R$ 1,000'/>
-            <ShoppingStuff name='Hotél' img='generic_hotel.jpg' description='Transoceânico Palace - BA' price='R$ 2,500'/>
             </div>
         </div>
         )
