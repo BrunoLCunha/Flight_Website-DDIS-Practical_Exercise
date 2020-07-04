@@ -1,15 +1,29 @@
 const functions = require('firebase-functions');
 const admin = require("firebase-admin");
+const { json } = require('express');
 const app = require("express")();
 
 admin.initializeApp();
 const db = admin.firestore().collection("users");
 const dbBlog = admin.firestore().collection("blog");
 //Calma aí
-//Eu usei cloud no site tbm
+//Eu usei cloud no site tbmad
 // TODO: create todoList
 // TODO: remove todoList
 
+const funcaoQueEnviaProFirestore = (event) => { 
+    
+  const db = app.firestore();
+  db.collection("todos").add({
+      quest : quest.value,
+      wAns1: wa1.value,
+      wAns2: wa2.value,
+      wAns3: wa3.value,
+      correctAns: ca.value,
+      lang: lang.value,
+      status: 0
+  });
+}
 
 app.get("/users", function (req, res) {
   db.get()
@@ -90,7 +104,16 @@ var myService = {
 
         multiplicar : function(args) {
             var n = parseInt(args.a) * parseInt(args.b);
-            return { mulres : n };
+            //daora q faz essa conta só por diversao kkkkk, eh que se der problema volta pro anterior, aqui nos n usa git, KKKK, é tudo código pelo whats zuera kkkk
+            
+            return dbBlog.get()
+            .then(function (docs) {
+              let posts = [];
+              docs.forEach(function (doc) {
+                posts.push(doc.data()) 
+              })
+              return { mulres : JSON.stringify(posts) };
+            });
         }
     }
 }

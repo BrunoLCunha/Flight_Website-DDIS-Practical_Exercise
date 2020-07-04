@@ -14,17 +14,40 @@ class BlogSection extends Component {
     }
     
     componentDidMount() {
-
-        const proxyUrl = "https://cors-anywhere.herokuapp.com/";
-        const url = 'https://us-central1-dsid-gp5.cloudfunctions.net/api/blog/';
+        // REST
+        // const proxyUrl = "https://cors-anywhere.herokuapp.com/";
+        // const url = 'https://us-central1-dsid-gp5.cloudfunctions.net/api/blog/';
         
-        fetch(proxyUrl + url) 
-            .then(response => response.json())
-            .then(data => {
-                this.setState({ posts: data, loading: false });
-                return data;
-            })
-            .catch(error =>  this.setState({ error: error, loading: false }));
+        // fetch(proxyUrl + url) 
+        //     .then(response => response.json())
+        //     .then(data => {
+        //         this.setState({ posts: data, loading: false });
+        //         return data;
+        //     })
+        //     .catch(error =>  this.setState({ error: error, loading: false }));
+
+        // SOAP
+        const proxyUrl = "https://cors-anywhere.herokuapp.com/";
+        const url = proxyUrl + 'us-central1-dsid-gp5.cloudfunctions.net/stockquote?wsdl';
+		
+		var soap = require('soap-everywhere');
+
+        var requestArgs = { a: 8, b: 3};
+		soap.createClient(url, function(err, client) {
+			if (err) {
+				console.error("An error has occurred creating SOAP client: " , err);  
+			} else {
+				// var description = client.describe();
+				// console.log("Client description:" , description);
+				client.multiplicar(requestArgs, function(err, result) {
+					if (err) {
+                        console.log("error on usage client's method");
+                        this.setState({ error: err, loading: false });
+					}
+                    this.setState({posts: JSON.parse(result.mulres), loading: false});
+				}.bind(this))
+			}
+		}.bind(this))
 
     }
 

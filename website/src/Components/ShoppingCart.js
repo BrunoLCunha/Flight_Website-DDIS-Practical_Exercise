@@ -1,10 +1,6 @@
 import React, {Component} from 'react';
 import ShoppingStuff from './ShoppingStuff';
 
-const admin = require("firebase-admin");
-admin.initializeApp();
-const dbCart = admin.firestore().collection("cart");
-
 class ShoppingCart extends Component {
     
     constructor(props) {
@@ -16,15 +12,6 @@ class ShoppingCart extends Component {
     }
 
     componentDidMount() {
-
-        dbCart.get()
-        .then(function (docs) {
-          let posts = [];
-          console.log(docs)
-          docs.forEach(function (doc) {
-            posts.push(doc.data())
-          })
-        });
 
     }
     
