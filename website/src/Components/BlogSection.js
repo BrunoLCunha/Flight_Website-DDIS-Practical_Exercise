@@ -43,7 +43,8 @@ class BlogSection extends Component {
 					if (err) {
                         console.log("error on usage client's method");
                         this.setState({ error: err, loading: false });
-					}
+                    }
+                    console.log('soap: ',result.mulres)
                     this.setState({posts: JSON.parse(result.mulres), loading: false});
 				}.bind(this))
 			}
