@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import ShoppingStuff from './ShoppingStuff';
+import firebase from 'firebase';
 
 
 class ShoppingCart extends Component {  
@@ -8,12 +9,16 @@ class ShoppingCart extends Component {
         super(props)
         
         this.state = {
-            shopping: []
+            shopping: [],
+            username: 'firefork'
         }
     }
     
     componentDidMount() {
 
+        
+        // this.setState({ username: firebase.auth().currentUser});
+        
         const proxyUrl = "https://cors-anywhere.herokuapp.com/";
         const url = 'https://us-central1-dsid-gp5.cloudfunctions.net/api/cart/';
         
@@ -28,18 +33,18 @@ class ShoppingCart extends Component {
     }
     
     render() {
+        console.log(this.state.username);
         return (
         <div id="fh5co-tours" className="fh5co-section-gray">
         <div className="container">
             <div className="row">
                 <div className="col-md-8 col-md-offset-2 text-center heading-section animate-box">
                     <h3>Seu Carrinho</h3>
-                    <p>Nesta seção você encontrará todos os produtos que demonstrou interesse até então. Que tal finalizar estas compras?</p>
+                    <p>Nesta seção você encontrará todos os produtos que demonstrou interesse até então.</p>
                 </div>
             </div>
             {this.state.shopping.map((shopping, index) => {
-                console.log(shopping);
-                if(shopping.username == this.props.username){
+                if(shopping.username == this.state.username){
                     return  <ShoppingStuff key={index}
                                 name={shopping.name}
                                 price={shopping.price}

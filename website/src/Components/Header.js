@@ -17,6 +17,7 @@ class Header extends Component {
                                 <li><a href="/hotel">Hotéis</a></li>
                                 <li><a href="/car">Carros</a></li>
                                 <li><a href="/blog">Blog</a></li>
+                                <li><a href="/cart">Carrinho</a></li>
                                 <li><a href="/contact">Sobre</a></li>
                             </ul>
                         </nav>

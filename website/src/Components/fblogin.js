@@ -2,13 +2,16 @@
 import React from 'react';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import firebase from 'firebase';
+import AddShopping from './AddShopping';
+
 
 // Configure FirebaseUI.
 const uiConfig = {
+
   // Popup signin flow rather than redirect flow.
   signInFlow: 'popup',
   // Redirect to /signedIn after sign in is successful. Alternatively you can provide a callbacks.signInSuccess function.
-  signInSuccessUrl: '/signedIn',
+  signInSuccessUrl: '/deadend',
   // We will display Google and Facebook as auth providers.
   signInOptions: [
     firebase.auth.EmailAuthProvider.PROVIDER_ID,
@@ -17,6 +20,11 @@ const uiConfig = {
 };
 
 class fblogin extends React.Component {
+
+  constructor(props) {
+    super(props)
+  }
+
   render() {
     return (
       <div className="container" >

@@ -1,43 +1,73 @@
 import React,{Component} from 'react';
-import username from './username';
+import firebase from 'firebase';
 
-class UserLogin extends Component{
+class AddShopping extends Component{
 
     constructor(props){
         super(props)
 
         this.state = {
-            uid: null,
-            user: null,
-            password: null
+            
+            username: null,
+
+            // shopping details
+            price: this.props.price,
+            description: this.props.description,
+            description: this.props.description,
+            img: this.props.img,
+            name: this.props.name
+
         }
+    }
+
+
+    async componentDidMount() {
+
+        firebase.auth().onAuthStateChanged(function(user) {
+
+            var user = firebase.auth().currentUser;
+            console.log(user);
+            if (user) {
+                console.log('This is the user: ', user)
+            } else {
+                // No user is signed in.
+                console.log('There is no logged in user');
+            }
+        });
+
+            // this.state.username = user;
+
+            // const proxyUrl = "https://cors-anywhere.herokuapp.com/";
+            // const url = 'https://us-central1-dsid-gp5.cloudfunctions.net/api/users/' + this.state.username;
+            
+            // fetch(proxyUrl + url, {
+            //     "method": "PUT",
+            //     "body": {
+            //         "cart": {
+            //             "username": this.state.username,
+            //             "price": this.state.price,
+            //             "description": this.state.description,
+            //             "img": this.state.img,
+            //             "name": this.state.name
+            //         }
+            //     }
+            // })
+            // .then(response => {
+            //     console.log(response);
+            // })
+            // .catch(err => {
+            //     console.log(err);
+            // });
+
     }
 
     render() {
 
-        const login = () => {}
-
         return(
             <div>
-                <h1>Login</h1>
-                <div id="firebaseui-auth-container"></div>
-                <div>
-                    <label>
-                        Usuário: 
-                        <input type="text" value={this.state.user} onChange={e => this.setState({user: e.target.value})} />
-                    </label>
-                </div>
-                <div>
-                    <label>
-                        Senha: 
-                        <input type="text" value={this.state.password} onChange={e => this.setState({password: e.target.value})} />
-                    </label>
-                </div>
-                <button onClick={(e) => login()}>Sign In</button>
-                <script src='login.js'></script>
             </div>
         )
     }
 }
 
-export default UserLogin;
+export default AddShopping;

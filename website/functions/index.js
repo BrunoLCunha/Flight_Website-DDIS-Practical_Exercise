@@ -92,7 +92,7 @@ app.get("/cart", function (req, res) {
       docs.forEach(function (doc) {
         shopping.push(doc.data())
       })
-      res.json(posts);
+      res.json(shopping);
     });
 })
 
