@@ -5,7 +5,7 @@ const app = require("express")();
 
 admin.initializeApp();
 const db = admin.firestore().collection("users");
-const dbBlog = admin.firestore().collection("blog");
+// const dbBlog = admin.firestore().collection("blog");
 const dbCart = admin.firestore().collection("cart");
 
 // TODO: create todoList
@@ -67,23 +67,23 @@ app.post("/users", function (req, res) {
 
 // ------------ DSIDESTINOS ------------
 
-app.get("/blog", function (req, res) {
-  dbBlog.get()
-    .then(function (docs) {
-      let posts = [];
-      docs.forEach(function (doc) {
-        posts.push(doc.data())
-      })
-      res.json(posts);
-    });
-})
+// app.get("/blog", function (req, res) {
+//   dbBlog.get()
+//     .then(function (docs) {
+//       let posts = [];
+//       docs.forEach(function (doc) {
+//         posts.push(doc.data())
+//       })
+//       res.json(posts);
+//     });
+// })
 
-app.post("/blog", function (req, res) {
-  dbBlog.doc(req.body.postId.toString()).set(req.body)
-    .then(function () {
-      res.json({ general: "Publicado com sucesso!" });
-    })
-})
+// app.post("/blog", function (req, res) {
+//   dbBlog.doc(req.body.postId.toString()).set(req.body)
+//     .then(function () {
+//       res.json({ general: "Publicado com sucesso!" });
+//     })
+// })
 
 app.get("/cart", function (req, res) {
   dbCart.get()
@@ -92,7 +92,7 @@ app.get("/cart", function (req, res) {
       docs.forEach(function (doc) {
         shopping.push(doc.data())
       })
-      res.json(posts);
+      res.json(shopping);
     });
 })
 
