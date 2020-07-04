@@ -1,17 +1,29 @@
 import React, {Component} from 'react';
 import ShoppingStuff from './ShoppingStuff';
 
-class ShoppingCart extends Component {
+
+class ShoppingCart extends Component {  
     
     constructor(props) {
         super(props)
         
         this.state = {
-            shopping: [],
+            shopping: []
         }
     }
-
+    
     componentDidMount() {
+
+        const proxyUrl = "https://cors-anywhere.herokuapp.com/";
+        const url = 'https://us-central1-dsid-gp5.cloudfunctions.net/api/cart/';
+        
+        fetch(proxyUrl + url) 
+            .then(response => response.json())
+            .then(data => {
+                this.setState({ shopping: data, loading: false });
+                return data;
+            })
+            .catch(error =>  this.setState({ error: error, loading: false }));
 
     }
     
@@ -26,13 +38,14 @@ class ShoppingCart extends Component {
                 </div>
             </div>
             {this.state.shopping.map((shopping, index) => {
-                return  <ShoppingStuff key={index}
-                            name={shopping.name}
-                            price={shopping.price}
-                            description={shopping.description}
-                            img={shopping.img}  
-                        />
-                        
+                if(shopping.username == 'firefork'){
+                    return  <ShoppingStuff key={index}
+                                name={shopping.name}
+                                price={shopping.price}
+                                description={shopping.description}
+                                img={shopping.img}  
+                            />
+                }     
             })}
             <ShoppingStuff name='Vôo' img='generic_airplane.jpg' description='BR-SP -> BR-RJ' price='R$ 1,000'/>
             <ShoppingStuff name='Hotél' img='generic_hotel.jpg' description='Transoceânico Palace - BA' price='R$ 2,500'/>
