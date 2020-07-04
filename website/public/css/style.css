@@ -588,7 +588,7 @@ figure {
 }
 @media screen and (max-width: 480px) {
   .tabulation input[type="text"] {
-    width: 55%;
+    width: 100%;
     float: right;
   }
 }
@@ -1353,7 +1353,7 @@ div.cs-select span {
 #fh5co-services,
 #fh5co-about,
 #fh5co-contact {
-  padding: 7em 0;
+  padding: 3em 0;
 }
 @media screen and (max-width: 768px) {
   #fh5co-services,

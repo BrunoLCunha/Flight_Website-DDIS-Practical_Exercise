@@ -61,6 +61,7 @@ class FlightsResult extends Component {
                                             onChange={(e) => this.setState({ thisTo: e.target.value })} 
                                             onBlur={(e) => this.setState({ thisTo: e.target.value })}></input>
                 <label>Ida:</label><input type="date"
+                                            required="required"
                                             value={this.state.thisDateGo}
                                             onChange={(e) => this.setState({ thisDateGo: e.target.value })}></input>
                 <label>Volta:</label><input type="date"

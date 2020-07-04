@@ -112,6 +112,7 @@ class HeroSection extends Component {
 																	className="form-control"
 																	id="from-place_0"
 																	placeholder="País ou cidade"
+																	required="required"
 																	onChange={(e) => this.setState({ to: e.target.value })} 
 																	onBlur={(e) => this.setState({ to: e.target.value })}
 																/>
@@ -123,6 +124,7 @@ class HeroSection extends Component {
 																<input
 																	type="date"
 																	id="date-start"
+																	required="required"
 																	value={this.state.dateGo}
 																	onChange={(e) => this.setState({ dateGo: e.target.value })}
 																/>
