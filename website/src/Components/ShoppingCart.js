@@ -20,7 +20,7 @@ class ShoppingCart extends Component {
         firebase.auth().onAuthStateChanged(function(user) {
 
             var user = firebase.auth().currentUser;
-            console.log(user);
+            console.log('user',user);
             if (user) {
                 that.setState({ username: user.email});
             } else {
@@ -62,7 +62,6 @@ class ShoppingCart extends Component {
                 </div>
             </div>
             {this.state.shopping.map((shopping, index) => {
-                console.log(this.state.username, shopping.username);
                 if(shopping.username == this.state.username){
                     return  <ShoppingStuff key={index}
                                 name={shopping.name}

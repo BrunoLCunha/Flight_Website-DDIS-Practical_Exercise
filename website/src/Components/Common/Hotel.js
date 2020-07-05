@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { Link } from 'react-router-dom';
 
 class Hotel extends Component {
     render () {
@@ -10,7 +11,18 @@ class Hotel extends Component {
                         <h3>{this.props.name}</h3>
                         <span>{this.props.description}</span>
                         <span className="price">{this.props.price}</span>
-                        <a className="btn btn-primary btn-outline" href="/fbl">Reserve agora <i className="icon-arrow-right22"></i></a>
+                        <Link to={{
+                            pathname: "/addShopping",
+                            state: {
+                                name: 'Hotel', 
+                                img: this.props.photoUrl ? this.props.photoUrl : 'generic_hotel.jpg', 
+                                description: this.props.name, 
+                                price: this.props.price}
+                        }}
+                        className="btn btn-primary btn-outline" 
+                        style={{margin: 10}}
+                        >
+                        Reserve agora <i className="icon-arrow-right22"></i></Link>
                     </div>
                 </div>
             </div>

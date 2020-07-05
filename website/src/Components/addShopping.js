@@ -24,40 +24,34 @@ class AddShopping extends Component{
 
 
     componentDidMount() {
-        console.log(this.state)
         let that = this 
         firebase.auth().onAuthStateChanged(function(user) {
 
             var user = firebase.auth().currentUser;
-            console.log('inside authStateChanged',user);
             if (user) {
                 const proxyUrl = "https://cors-anywhere.herokuapp.com/";
-                const url = 'https://us-central1-dsid-gp5.cloudfunctions.net/api/cart/' + user.email;
-                
-                fetch(proxyUrl + url, {
-                    "method": "PUT",
-                    "body": {
-                        "cart": {
-                            "username": user.email,
-                            "price": that.state.price,
-                            "description": that.state.description,
-                            "img": that.state.img,
-                            "name": that.state.name
-                        }
-                    }
-                })
-                .then(response => {
-                    console.log(response);
-                })
-                .catch(err => {
-                    console.log(err);
-                });
+                const url = 'https://us-central1-dsid-gp5.cloudfunctions.net/api/cart/';
+
+                const requestOptions = {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        username: user.email,
+                        name: that.state.name,
+                        price: that.state.price,
+                        img: that.state.img,
+                        description: that.state.description
+                    })
+                };
+                fetch(proxyUrl + url, requestOptions)
+                    .then(response => response.json())
+                    .then(data => console.log(data));
+
             } else {
                 // No user is signed in.
                 console.log('There is no logged in user');
             }
         });
-        console.log('addShop',this.state)
         if (this.state.username) {
             const proxyUrl = "https://cors-anywhere.herokuapp.com/";
             const url = 'https://us-central1-dsid-gp5.cloudfunctions.net/api/users/' + this.state.username;
@@ -89,10 +83,9 @@ class AddShopping extends Component{
 
     render() {
         if (this.state.redirect){
-            //return <Redirect to={{pathname: '/fbl', state: this.state}} />
+            return <Redirect to={{pathname: '/fbl', state: this.state}} />
         }
-        return null
-        //return <Redirect to={{pathname: '/deadend'}} />
+        return <Redirect to={{pathname: '/deadend'}} />
     }
 }
 
