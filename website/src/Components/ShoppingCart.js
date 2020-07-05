@@ -66,7 +66,7 @@ class ShoppingCart extends Component {
             <div className="row">
                 <div className="col-md-8 col-md-offset-2 text-center heading-section" >
                     <h3>Seu Carrinho</h3>
-                    <p>Nesta seção você encontrará todos os produtos que demonstrou interesse até então.</p>
+                    <p>Nesta seção você encontrará todos os produtos que demonstrou interesse até então. (O carregamento pode levar alguns segundos)</p>
 
                     {!this.state.username ? 
                         <div>
