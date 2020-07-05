@@ -1,9 +1,6 @@
 import React,{Component} from 'react';
 import firebase from 'firebase';
 import { Redirect } from 'react-router';
-import shortid from "shortid";
-
-
 
 
 class AddShopping extends Component{
@@ -14,7 +11,7 @@ class AddShopping extends Component{
         this.state = {
 
             username: null,
-
+            stored: false,
             // shopping details
             price: this.props.location.state.price,
             description: this.props.location.state.description,
@@ -35,7 +32,7 @@ class AddShopping extends Component{
             if (user) {
 
                 // store the purchase
-                const proxyUrl = "https://cors-anywhere.herokuapp.com/";
+                const proxyUrl = "https://no-cors-dsid-gp5.herokuapp.com/";
                 const url = 'https://us-central1-dsid-gp5.cloudfunctions.net/api/cart/';
 
                 const requestOptions = {
@@ -49,9 +46,9 @@ class AddShopping extends Component{
                         description: that.state.description
                     })
                 };
-                fetch(proxyUrl + url, requestOptions)
+                fetch(url, requestOptions)
                     .then(response => response.json())
-                    .then(data => console.log(data));
+                    .then(data => this.setState({stored:true}));
 
             } else {
                 // No user is signed in.
@@ -60,12 +57,8 @@ class AddShopping extends Component{
         });   
     }
 
-    getRandomKey = () => {
-        return shortid.generate();
-    }
-
     render() {
-        return <Redirect to={{pathname: '/cart', state: { id: this.getRandomKey() }}} />
+        return <Redirect to={{pathname: '/cart'}} />
     }
 }
 

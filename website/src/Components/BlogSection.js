@@ -28,8 +28,7 @@ class BlogSection extends Component {
         //     .catch(error =>  this.setState({ error: error, loading: false }));
 
         // SOAP
-        const proxyUrl = "https://cors-anywhere.herokuapp.com/";
-        const url = proxyUrl + 'us-central1-dsid-gp5.cloudfunctions.net/stockquote?wsdl';
+        const url = 'https://us-central1-dsid-gp5.cloudfunctions.net/stockquote?wsdl';
 		
 		var soap = require('soap-everywhere');
 
