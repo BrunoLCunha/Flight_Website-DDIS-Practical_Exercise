@@ -2,10 +2,24 @@ import React, {Component} from 'react';
 import {Map, GoogleApiWrapper} from 'google-maps-react';
 
 class ContactSection extends Component {
+	constructor(props) {
+        super(props)
+        
+        this.state = {
+			animation: false
+        }
+	}
+	componentDidMount() {
+		this.setState({animation: true})
+	}
+	
     render(){
+		let hide = {opacity: 0}
+		let fadeIn = {transition: 'opacity 0.5s', opacity: 1}
+		
         return(
             <div id="fh5co-contact" className="fh5co-section-gray">
-			<div className="container">
+			<div className="container" style={this.state.animation ? fadeIn : hide}>
 					<div>
 						<h3>Sobre Nós</h3>
 						<p>Site de viagens construído para o trabalho da disciplina DSID, ministrada pelo Prof. Dr. Fantinato.</p>

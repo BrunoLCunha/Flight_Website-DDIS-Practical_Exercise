@@ -52,10 +52,10 @@ class HotelsInCity extends Component {
         return (
             <Hotel
                 city={this.props.city}
-                name={this.state.data.name}
-                stars={this.state.data.starRating}
-                price={this.state.data.featuredPrice.currentPrice.formatted}
-                description={this.state.data.tagline[0].replace('<b>', '').replace('</b>','')}
+                name={this.state.data.name ? this.state.data.name : null}
+                stars={this.state.data.starRating ? this.state.data.starRating : null}
+                price={this.state.data.featuredPrice && this.state.data.featuredPrice.currentPrice && this.state.data.featuredPrice.currentPrice.formatted ? this.state.data.featuredPrice.currentPrice.formatted : null}
+                description={this.state.data.tagline && this.state.data.tagline[0] ? this.state.data.tagline[0].replace('<b>', '').replace('</b>','') : null}
                 photoUrl={this.state.photo}
             />
         )

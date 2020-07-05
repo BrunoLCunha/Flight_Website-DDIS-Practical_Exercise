@@ -16,7 +16,6 @@ class FlightsBetweenCities extends Component {
     }
 
     async componentDidMount() {
-
         let url = 'https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/' +
         this.props.country + '/' + this.props.currency + '/' + this.props.locale + '/?query=' + this.props.from; 
         fetch( url, {headers: this.props.rapidCredentials})  
@@ -41,7 +40,7 @@ class FlightsBetweenCities extends Component {
 
     render() {
         if (this.state.loading < 2) {
-            return <div>Loading...</div>;
+            return <div style={{textAlign: 'center'}}>Loading...</div>;
         }
     
         if (this.state.error) {
@@ -61,7 +60,7 @@ class FlightsBetweenCities extends Component {
         }
 
         return (
-            <div id="fh5co-tours" className="fh5co-section-gray">
+            <div id="fh5co-tours" className="fh5co-section-gray" style={{padding:0}}>
 			<div className="container">
                 <div className="row">
                     {PlacesFrom.map((aptFrom, i) => {

@@ -23,11 +23,18 @@ class fblogin extends React.Component {
 
   render() {
     return (
-      <div className="container" >
-        <p></p>
-        <h1>Acesse seu perfil:</h1>
-        <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()}/>
-      </div>
+      <div id="fh5co-tours" className="fh5co-section-gray">
+        <div className="container">
+            <div className="row">
+                <div className="col-md-8 col-md-offset-2 text-center heading-section">
+                  <h3>Acesse seu perfil</h3>
+                  <p>Para registrar as compras do site em seu nome e assim podendo recuperá-las, é necessário o login</p>
+                  <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()}/>
+                  <p>Não se preocupe com os dados informados, uma API do Google é utilizada e portanto nós não temos acesso aos dados</p>
+                </div>
+              </div>
+            </div>
+          </div>
     );
   }
 }

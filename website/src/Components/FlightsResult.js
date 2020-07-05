@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import FlightsBetweenCities from './FlightsBetweenCities';
 import rapidCredentials from './rapidCredentials';
-import { Redirect } from 'react-router';
+import {Link} from 'react-router-dom';
 
 class FlightsResult extends Component {
      
@@ -9,69 +9,68 @@ class FlightsResult extends Component {
 		super(props)
 
 		this.state = {
-			thisFrom: '',
-			thisTo: '',
-			thisDateGo: '',
-			thisDateBack: '',
-			thisRedirect: false
+			from: '',
+			to: '',
+			dateGo: '',
+			dateBack: '',
 		}
 	}
 
     search = (e) => {
-        //e.preventDefault();
-        document.body.appendChild(document.getElementById('form'));
-		this.setState({thisRedirect: true})
-	}
+        window.location.reload();
+    }
+
+    componentWillMount() {
+        console.log(this.state,this.props.location.state)
+        if (!this.state.from)
+            this.setState({
+                from: this.props.location.state.from,
+                to: this.props.location.state.to,
+                dateGo: this.props.location.state.dateGo ? this.props.location.state.dateGo : 'anytime',
+                dateBack: this.props.location.state.dateBack ? this.props.location.state.dateBack : 'anytime',
+            })
+    }
+
+    componentDidMount() {
+        console.log('did', this.state,this.props.location.state)
+    }
 
     render() {
-
-        if (this.state.thisRedirect) {
-			return	<Redirect to={{pathname: '/flights-result', state: {from: this.state.thisFrom, 
-																		to: this.state.thisTo, 
-																		dateGo: this.state.thisDateGo ? this.state.thisDateGo : 'anytime',
-																		dateBack: this.state.thisDateBack ? this.state.thisDateBack : 'anytime',
-																		}}} />
-		}
-		
-
-        function GetBeforeComma(e) {
-            if(e != null){
-            if(e.includes(",")){
-                    return e.substr(0, e.indexOf(','));
-                }
-            }
-            return e;
-        }
         return(          
-            <div id='teste'>
-                <div id = 'explain'>
-                
-                <div className="explain-row">
-                <h1>{this.props.location.state ? this.props.location.state.thisFrom : null}<br></br>
-                {this.props.location.state ? this.props.location.state.thisTo : null}</h1> 
-                <form id="form"  onSubmit={this.search}>
-                <label>Origem:</label><input placeholder="País ou cidade" 
-                                            required="required"
-                                            data-validation-required-message="Please enter your departure origin"
-                                            onChange={(e) => this.setState({ thisFrom: e.target.value })} 
-                                            onBlur={(e) => this.setState({ thisFrom: e.target.value })}></input>
-                <label>Destino:</label><input placeholder="País ou cidade" 
-                                            required="required"
-                                            data-validation-required-message="Please enter your departure origin"
-                                            onChange={(e) => this.setState({ thisTo: e.target.value })} 
-                                            onBlur={(e) => this.setState({ thisTo: e.target.value })}></input>
-                <label>Ida:</label><input type="date"
-                                            required="required"
-                                            value={this.state.thisDateGo}
-                                            onChange={(e) => this.setState({ thisDateGo: e.target.value })}></input>
-                <label>Volta:</label><input type="date"
-                                            value={this.state.thisDateBack}
-                                            onChange={(e) => this.setState({ thisDateBack: e.target.value })}></input>
-                <div className="button-fly-search">
-                    <input type="submit" className="btn btn-primary btn-block" value="Buscar voos" />
-                         </div>
-                         </form>
+            <div id='voo'>
+
+                <div id = 'search-panel'>
+                    <div className="explain-row">
+                        <label>Origem:</label><input placeholder="País ou cidade" 
+                                                    required="required"
+                                                    data-validation-required-message="Please enter your departure origin"
+                                                    onChange={(e) => this.setState({ from: e.target.value })} 
+                                                    onBlur={(e) => this.setState({ from: e.target.value })}></input>
+                        <label>Destino:</label><input placeholder="País ou cidade" 
+                                                    required="required"
+                                                    data-validation-required-message="Please enter your departure origin"
+                                                    onChange={(e) => this.setState({ to: e.target.value })} 
+                                                    onBlur={(e) => this.setState({ to: e.target.value })}></input>
+                        <label>Ida:</label><input type="date"
+                                                    value={this.state.dateGo}
+                                                    onChange={(e) => this.setState({ dateGo: e.target.value })}></input>
+                        <label>Volta:</label><input type="date"
+                                                    value={this.state.dateBack}
+                                                    onChange={(e) => this.setState({ dateBack: e.target.value })}></input>
+                        <div className="button-fly-search">
+                            <Link onClick={this.search} to={{pathname:"/flights-result", state:this.state}} className="btn btn-primary btn-block">Buscar voos</Link>
+                        </div>
                     </div> 
+                </div>
+
+                <div className="fh5co-section-gray">
+                        <div className="row">
+                            <div className="col-md-8 col-md-offset-2 text-center heading-section" style={{paddingBottom: 0, marginBottom: 0, padding: '1em'}} >
+                                <p style={{marginBottom: 0}}>{this.props.location.state ? this.props.location.state.from + ' ' : null}
+                                <i className="icon-arrow-right22"></i>
+                                {this.props.location.state ? ' ' + this.props.location.state.to : null}</p> 
+                            </div>
+                        </div>
                 </div>
                 
                 <FlightsBetweenCities
@@ -79,10 +78,10 @@ class FlightsResult extends Component {
                     country='BR' 
                     currency='BRL' 
                     locale='pt-br' 
-                    from={GetBeforeComma(this.props.location.state ? this.props.location.state.from : null)}
-                    to={GetBeforeComma(this.props.location.state ? this.props.location.state.to : null)}
-                    outboundpartialdate={this.props.location.state ? this.props.location.state.dateGo : null}
-                    inboundpartialdate={this.props.location.state ? this.props.location.state.dateBack : null}
+                    from={this.state.from}
+                    to={this.state.to}
+                    outboundpartialdate={this.state.dateGo}
+                    inboundpartialdate={this.state.dateBack}
                 />
             </div>
         )

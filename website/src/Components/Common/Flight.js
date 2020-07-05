@@ -11,9 +11,9 @@ class Flight extends Component {
                     img: 'generic_airplane.jpg', 
                     description: this.props.from + ' -> ' + this.props.to, 
                     price: this.props.price}
-            }}
-            className="flight-book" 
-            style={{margin: 10}}
+                }}
+                className="flight-book" 
+                style={{margin: 10}}
             >
                 <div className="plane-name">
                     <span className="p-flight">{this.props.carryGo}</span>

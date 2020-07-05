@@ -1,6 +1,9 @@
 import React,{Component} from 'react';
 import firebase from 'firebase';
 import { Redirect } from 'react-router';
+import shortid from "shortid";
+
+
 
 
 class AddShopping extends Component{
@@ -9,7 +12,6 @@ class AddShopping extends Component{
         super(props)
 
         this.state = {
-            redirect: false,
 
             username: null,
 
@@ -24,11 +26,15 @@ class AddShopping extends Component{
 
 
     componentDidMount() {
-        let that = this 
-        firebase.auth().onAuthStateChanged(function(user) {
 
+        let that = this 
+
+        // check user logged
+        firebase.auth().onAuthStateChanged(function(user) {
             user = firebase.auth().currentUser;
             if (user) {
+
+                // store the purchase
                 const proxyUrl = "https://cors-anywhere.herokuapp.com/";
                 const url = 'https://us-central1-dsid-gp5.cloudfunctions.net/api/cart/';
 
@@ -49,43 +55,17 @@ class AddShopping extends Component{
 
             } else {
                 // No user is signed in.
-                console.log('There is no logged in user');
+                console.log('No user identified')
             }
-        });
-        if (this.state.username) {
-            const proxyUrl = "https://cors-anywhere.herokuapp.com/";
-            const url = 'https://us-central1-dsid-gp5.cloudfunctions.net/api/users/' + this.state.username;
-            
-            fetch(proxyUrl + url, {
-                "method": "PUT",
-                "body": {
-                    "cart": {
-                        "username": this.state.username,
-                        "price": this.state.price,
-                        "description": this.state.description,
-                        "img": this.state.img,
-                        "name": this.state.name
-                    }
-                }
-            })
-            .then(response => {
-                console.log(response);
-            })
-            .catch(err => {
-                console.log(err);
-            });
-        }
-        else {
-            this.setState({redirect: true})	
-        }
-        
+        });   
+    }
+
+    getRandomKey = () => {
+        return shortid.generate();
     }
 
     render() {
-        if (this.state.redirect){
-            return <Redirect to={{pathname: '/fbl', state: this.state}} />
-        }
-        return <Redirect to={{pathname: '/cart'}} />
+        return <Redirect to={{pathname: '/cart', state: { id: this.getRandomKey() }}} />
     }
 }
 
