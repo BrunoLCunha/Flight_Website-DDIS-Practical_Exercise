@@ -97,7 +97,7 @@ app.get("/cart", function (req, res) {
 })
 
 app.put('/cart/:username', function(req, res) {
-  db.doc(req.params.username).update(req.body)
+  dbCart.doc(req.params.username).update(req.body)
       .then(function () {
           res.json({ general: "It works" });
       });

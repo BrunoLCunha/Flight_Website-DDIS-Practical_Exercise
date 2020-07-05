@@ -146,7 +146,6 @@ class HeroSection extends Component {
 																<input
 																	type="date"
 																	id="date-start"
-																	required="required"
 																	value={this.state.dateGo}
 																	onChange={(e) => this.setState({ dateGo: e.target.value })}
 																/>

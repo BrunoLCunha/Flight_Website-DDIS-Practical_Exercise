@@ -20,7 +20,7 @@ class FlightsBetweenCities extends Component {
         let url = 'https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/' +
         this.props.country + '/' + this.props.currency + '/' + this.props.locale + '/?query=' + this.props.from; 
         fetch( url, {headers: this.props.rapidCredentials})  
-            .then(response => console.log(response.text()))
+            .then(response => response.json())
             .then(data => {
                 this.setState({ dataFrom: data, loading: this.state.loading+1 });
                 return data;

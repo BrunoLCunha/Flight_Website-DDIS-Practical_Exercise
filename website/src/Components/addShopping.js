@@ -1,5 +1,7 @@
 import React,{Component} from 'react';
 import firebase from 'firebase';
+import { Redirect } from 'react-router';
+
 
 class AddShopping extends Component{
 
@@ -7,66 +9,90 @@ class AddShopping extends Component{
         super(props)
 
         this.state = {
-            
+            redirect: false,
+
             username: null,
 
             // shopping details
-            price: this.props.price,
-            description: this.props.description,
-            description: this.props.description,
-            img: this.props.img,
-            name: this.props.name
+            price: this.props.location.state.price,
+            description: this.props.location.state.description,
+            img: this.props.location.state.img,
+            name: this.props.location.state.name
 
         }
     }
 
 
-    async componentDidMount() {
-
+    componentDidMount() {
+        console.log(this.state)
+        let that = this 
         firebase.auth().onAuthStateChanged(function(user) {
 
             var user = firebase.auth().currentUser;
-            console.log(user);
+            console.log('inside authStateChanged',user);
             if (user) {
-                console.log('This is the user: ', user)
+                const proxyUrl = "https://cors-anywhere.herokuapp.com/";
+                const url = 'https://us-central1-dsid-gp5.cloudfunctions.net/api/cart/' + user.email;
+                
+                fetch(proxyUrl + url, {
+                    "method": "PUT",
+                    "body": {
+                        "cart": {
+                            "username": user.email,
+                            "price": that.state.price,
+                            "description": that.state.description,
+                            "img": that.state.img,
+                            "name": that.state.name
+                        }
+                    }
+                })
+                .then(response => {
+                    console.log(response);
+                })
+                .catch(err => {
+                    console.log(err);
+                });
             } else {
                 // No user is signed in.
                 console.log('There is no logged in user');
             }
         });
-
-            // this.state.username = user;
-
-            // const proxyUrl = "https://cors-anywhere.herokuapp.com/";
-            // const url = 'https://us-central1-dsid-gp5.cloudfunctions.net/api/users/' + this.state.username;
+        console.log('addShop',this.state)
+        if (this.state.username) {
+            const proxyUrl = "https://cors-anywhere.herokuapp.com/";
+            const url = 'https://us-central1-dsid-gp5.cloudfunctions.net/api/users/' + this.state.username;
             
-            // fetch(proxyUrl + url, {
-            //     "method": "PUT",
-            //     "body": {
-            //         "cart": {
-            //             "username": this.state.username,
-            //             "price": this.state.price,
-            //             "description": this.state.description,
-            //             "img": this.state.img,
-            //             "name": this.state.name
-            //         }
-            //     }
-            // })
-            // .then(response => {
-            //     console.log(response);
-            // })
-            // .catch(err => {
-            //     console.log(err);
-            // });
-
+            fetch(proxyUrl + url, {
+                "method": "PUT",
+                "body": {
+                    "cart": {
+                        "username": this.state.username,
+                        "price": this.state.price,
+                        "description": this.state.description,
+                        "img": this.state.img,
+                        "name": this.state.name
+                    }
+                }
+            })
+            .then(response => {
+                console.log(response);
+            })
+            .catch(err => {
+                console.log(err);
+            });
+        }
+        else {
+            this.setState({redirect: true})	
+        }
+        
     }
 
     render() {
-
-        return(
-            <div>
-            </div>
-        )
+        if (this.state.redirect){
+            //return <Redirect to={{pathname: '/fbl', state: this.state}} />
+        }
+        return null
+        //return <Redirect to={{pathname: '/deadend'}} />
     }
 }
 
