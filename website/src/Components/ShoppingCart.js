@@ -19,7 +19,7 @@ class ShoppingCart extends Component {
 
         firebase.auth().onAuthStateChanged(function(user) {
 
-            var user = firebase.auth().currentUser;
+            user = firebase.auth().currentUser;
             console.log('user',user);
             if (user) {
                 that.setState({ username: user.email});
@@ -42,6 +42,14 @@ class ShoppingCart extends Component {
             .catch(error =>  this.setState({ error: error, loading: false }));
 
     }
+
+    logout() {
+        firebase.auth().signOut().then(function() {
+            
+          }).catch(function(error) {
+            // An error happened.
+          });
+    }
     
     render() {
         return (
@@ -54,15 +62,15 @@ class ShoppingCart extends Component {
 
                     {!this.state.username ? 
                         <div>
-                            <p>Você ainda não está logado. Que tal entrar em nosso sitema?</p>     
+                            <p>Você ainda não está logado. Que tal entrar em nosso sistema?</p>     
                             <p><a className="btn btn-primary btn-outline btn-lg" href="/fbl"><i className="icon-arrow-left22"></i> Fazer login</a></p>
                         </div>
-                        : <p><a className="btn btn-primary btn-outline btn-lg" href="/fbl"><i className="icon-arrow-left22"></i> Log out</a></p>
+                        : <p><a className="btn btn-primary btn-outline btn-lg" onClick={this.logout()} href="/cart"><i className="icon-arrow-left22"></i> Log out</a></p>
                     }
                 </div>
             </div>
             {this.state.shopping.map((shopping, index) => {
-                if(shopping.username == this.state.username){
+                if(shopping.username === this.state.username){
                     return  <ShoppingStuff key={index}
                                 name={shopping.name}
                                 price={shopping.price}

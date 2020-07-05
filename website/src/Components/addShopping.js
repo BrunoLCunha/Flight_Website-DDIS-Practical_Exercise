@@ -27,7 +27,7 @@ class AddShopping extends Component{
         let that = this 
         firebase.auth().onAuthStateChanged(function(user) {
 
-            var user = firebase.auth().currentUser;
+            user = firebase.auth().currentUser;
             if (user) {
                 const proxyUrl = "https://cors-anywhere.herokuapp.com/";
                 const url = 'https://us-central1-dsid-gp5.cloudfunctions.net/api/cart/';
@@ -85,7 +85,7 @@ class AddShopping extends Component{
         if (this.state.redirect){
             return <Redirect to={{pathname: '/fbl', state: this.state}} />
         }
-        return <Redirect to={{pathname: '/deadend'}} />
+        return <Redirect to={{pathname: '/cart'}} />
     }
 }
 

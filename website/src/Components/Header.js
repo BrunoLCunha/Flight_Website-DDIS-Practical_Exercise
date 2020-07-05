@@ -6,7 +6,6 @@ class Header extends Component {
             <header id="fh5co-header-section" className="sticky-banner">
                 <div className="container">
                     <div className="nav-header">
-                        <a href="#" className="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
                         <h1 id="fh5co-logo"><a href="/"><i className="icon-airplane"></i>DSIDESTINOS</a></h1>
                         {/*<!-- START #fh5co-menu-wrap -->*/}
                         <nav id="fh5co-menu-wrap" role="navigation">

@@ -63,14 +63,14 @@ class HeroSection extends Component {
 
 	
 		if (this.state.redirect) {
-			if (this.state.type == 'flight') {
+			if (this.state.type === 'flight') {
 				return	<Redirect to={{pathname: '/flights-result', state: {from: this.state.from, 
 							to: this.state.to, 
 							dateGo: this.state.dateGo ? this.state.dateGo : 'anytime',
 							dateBack: this.state.dateBack ? this.state.dateBack : 'anytime',
 							}}} />
 			}
-			if (this.state.type == 'hotel') {
+			if (this.state.type === 'hotel') {
 				console.log(this.state)
 				return	<Redirect to={{pathname: '/hotels-result', state: {city: this.state.city, 
 					checkIn: this.state.checkIn, 
@@ -98,9 +98,6 @@ class HeroSection extends Component {
 										</li>
 										<li role="presentation">
 											<a href="#hotels" aria-controls="hotels" role="tab" data-toggle="tab">Hotéis</a>
-										</li>
-										<li role="presentation">
-											<a href="#packages" aria-controls="packages" role="tab" data-toggle="tab">Pacotes</a>
 										</li>
 									</ul>
 									

@@ -13,12 +13,11 @@ import NavBar from './Components/Header';
 import Foot from './Components/FooterSection';
 import FlightsResult from './Components/FlightsResult';
 import DeadEnd from './Components/DeadEnd';
-import test from './Components/test';
 import ShoppingCart from './Components/ShoppingCart';
 import Crud from './Crud';
 import HotelsResult from './Components/HotelsResult';
 import fblogin from './Components/fblogin';
-import AddShopping from './Components/AddShopping';
+import AddShopping from './Components/addShopping';
 
 const App = () => {
   return (
@@ -38,7 +37,7 @@ const App = () => {
      <Route exact path="/cart" component={ShoppingCart} />
      <Route exact path="/login" component={Crud} />
      <Route exact path="/fbl" component={fblogin} />
-     <Route path="/addShopping" component={AddShopping} />
+     <Route exact path="/addShopping" component={AddShopping} />
      <Foot/>
      </div>
    </Router>
