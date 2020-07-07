@@ -22,6 +22,7 @@ class fblogin extends React.Component {
 
 
   render() {
+    console.log(this.props)
     return (
       <div id="fh5co-tours" className="fh5co-section-gray">
         <div className="container">

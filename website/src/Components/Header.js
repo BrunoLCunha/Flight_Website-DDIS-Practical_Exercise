@@ -1,6 +1,35 @@
 import React, {Component} from 'react';
+import firebase from 'firebase';
 
 class Header extends Component {
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            login: true
+        }
+    }
+
+    componentDidMount () {
+        let that = this
+		  firebase.auth().onAuthStateChanged(function(user) {
+			user = firebase.auth().currentUser;
+			if (user) {
+				that.setState({ login: false});
+			} else {
+				// No user is signed in.
+				console.log('There is no logged in user');
+			}})
+    }
+
+    logout() {
+        firebase.auth().signOut().then(function() {
+            window.location.reload();  
+          }).catch(function(error) {
+            // An error happened.
+          });
+    }
+
     render() {
         return(
             <header id="fh5co-header-section" className="sticky-banner">
@@ -17,6 +46,12 @@ class Header extends Component {
                                 <li><a href="/blog">Blog</a></li>
                                 <li><a href="/cart">Carrinho</a></li>
                                 <li><a href="/contact">Sobre</a></li>
+                                {
+                                    this.state.login ?
+                                        <li><a href="/fbl">Login</a></li>
+                                    :
+                                        <li><a onClick={this.logout} href="/cart">Logout</a></li>
+                                }
                             </ul>
                         </nav>
                     </div>

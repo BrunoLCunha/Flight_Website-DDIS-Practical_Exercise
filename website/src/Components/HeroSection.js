@@ -47,6 +47,7 @@ class HeroSection extends Component {
 			container: document.querySelector('#to-place_pk'),
 			collection: ['adminArea']
 		  });
+
 	}
 
 	searchFlight = (e) => {
@@ -64,15 +65,15 @@ class HeroSection extends Component {
 	
 		if (this.state.redirect) {
 			if (this.state.type === 'flight') {
-				return	<Redirect to={{pathname: '/flights-result', state: {from: this.state.from, 
-							to: this.state.to, 
+				return	<Redirect to={{pathname: '/flights-result', state: {from: this.state.from.indexOf(',') === -1 ? this.state.from : this.state.from.substring(0, this.state.from.indexOf(',')), 
+							to: this.state.to.indexOf(',') === -1 ? this.state.to : this.state.to.substring(0, this.state.to.indexOf(',')), 
 							dateGo: this.state.dateGo ? this.state.dateGo : 'anytime',
 							dateBack: this.state.dateBack ? this.state.dateBack : 'anytime',
 							}}} />
 			}
 			if (this.state.type === 'hotel') {
 				console.log(this.state)
-				return	<Redirect to={{pathname: '/hotels-result', state: {city: this.state.city, 
+				return	<Redirect to={{pathname: '/hotels-result', state: {city: this.state.city.indexOf(',') === -1 ? this.state.city : this.state.city.substring(0, this.state.city.indexOf(',')), 
 					checkIn: this.state.checkIn, 
 					checkOut: this.state.checkOut
 					}}} />

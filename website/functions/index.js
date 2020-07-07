@@ -73,7 +73,7 @@ app.get("/cart", function (req, res) {
     .then(function (docs) {
       let shopping = [];
       docs.forEach(function (doc) {
-        shopping.push(doc.data())
+        shopping.push({id: doc.id, data: doc.data()})
       })
       res.json(shopping);
     });
@@ -84,6 +84,20 @@ app.post('/cart', function(req, res) {
       .then(function () {
           res.json({ general: "It works" });
       });
+})
+
+app.delete('/cart/:id', function (req, res) {
+  dbCart.doc(req.params.id).delete()
+    .then(function() {
+        res.json({general: 'Deleted'})
+    });
+});
+
+app.get("/cart/:id", function(req,res) {
+  dbCart.doc(req.params.id).get()
+      .then(function(doc) {
+          res.json({id: doc.id, data: doc.data()});
+      })
 })
 
 app.use(function(req, res, next) {

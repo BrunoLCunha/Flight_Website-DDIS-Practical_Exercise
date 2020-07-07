@@ -48,7 +48,7 @@ class AddShopping extends Component{
                 };
                 fetch(url, requestOptions)
                     .then(response => response.json())
-                    .then(data => this.setState({stored:true}));
+                    .then(data => console.log('compra efetuada'));
 
             } else {
                 // No user is signed in.
