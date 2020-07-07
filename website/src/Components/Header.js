@@ -35,6 +35,7 @@ class Header extends Component {
             <header id="fh5co-header-section" className="sticky-banner">
                 <div className="container">
                     <div className="nav-header">
+                        <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
                         <h1 id="fh5co-logo"><a href="/"><i className="icon-airplane"></i>DSIDESTINOS</a></h1>
                         {/*<!-- START #fh5co-menu-wrap -->*/}
                         <nav id="fh5co-menu-wrap" role="navigation">
@@ -48,7 +49,7 @@ class Header extends Component {
                                 <li><a href="/contact">Sobre</a></li>
                                 {
                                     this.state.login ?
-                                        <li><a href="/fbl">Login</a></li>
+                                        <li><a href="/login">Login</a></li>
                                     :
                                         <li><a onClick={this.logout} href="/cart">Logout</a></li>
                                 }

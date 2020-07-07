@@ -80,7 +80,7 @@ class ShoppingCart extends Component {
                     {!this.state.username ? 
                         <div>
                             <p>Você ainda não está logado. Que tal entrar em nosso sistema?</p>     
-                            <p><a className="btn btn-primary btn-outline btn-lg" href="/fbl">Fazer login <i className="icon-arrow-right22"></i></a></p>
+                            <p><a className="btn btn-primary btn-outline btn-lg" href="/login">Fazer login <i className="icon-arrow-right22"></i></a></p>
                         </div>
                         : <p><Link className="btn btn-primary btn-outline btn-lg" onClick={this.logout} to="/cart"><i className="icon-arrow-left22"></i> Log out</Link></p>
                     }

@@ -35,8 +35,8 @@ const App = () => {
      <Route exact path="/deadend" component={DeadEnd} />
      <Route exact path="/hotels-result" component={HotelsResult} />
      <Route exact path="/cart" component={ShoppingCart} />
-     <Route exact path="/login" component={Crud} />
-     <Route exact path="/fbl" component={fblogin} />
+     <Route exact path="/enter" component={Crud} />
+     <Route exact path="/login" component={fblogin} />
      <Route exact path="/addShopping" component={AddShopping} />
      <Foot/>
      </div>
