@@ -18,6 +18,7 @@ import Crud from './Crud';
 import HotelsResult from './Components/HotelsResult';
 import fblogin from './Components/fblogin';
 import AddShopping from './Components/addShopping';
+import Illustrative from './Components/Illustrative';
 
 const App = () => {
   return (
@@ -38,6 +39,7 @@ const App = () => {
      <Route exact path="/enter" component={Crud} />
      <Route exact path="/login" component={fblogin} />
      <Route exact path="/addShopping" component={AddShopping} />
+     <Route exact path="/illustrative" component={Illustrative} />
      <Foot/>
      </div>
    </Router>

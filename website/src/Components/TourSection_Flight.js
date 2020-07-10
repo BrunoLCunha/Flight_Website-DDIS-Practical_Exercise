@@ -72,7 +72,7 @@ class TourSection_Flight extends Component {
 					</div>
 					<div className="col-md-6 animate-box">
 						<img className="img-responsive" src="images\ross-parmly-rf6ywHVkrlY-unsplash.jpg" alt="travel" />
-						<a href="/deadend" className="flight-book">
+						<a href="/illustrative" className="flight-book">
 							<div className="plane-name">
 								<span className="p-flight">United States Airways</span>
 							</div>
@@ -89,7 +89,7 @@ class TourSection_Flight extends Component {
 								</div>
 							</div>
 						</a>
-						<a href="/deadend" className="flight-book">
+						<a href="/illustrative" className="flight-book">
 							<div className="plane-name">
 								<span className="p-flight">Qatar Airways</span>
 							</div>
@@ -106,7 +106,7 @@ class TourSection_Flight extends Component {
 								</div>
 							</div>
 						</a>
-						<a href="/deadend" className="flight-book">
+						<a href="/illustrative" className="flight-book">
 							<div className="plane-name">
 								<span className="p-flight">Philippine Airline</span>
 							</div>
@@ -123,7 +123,7 @@ class TourSection_Flight extends Component {
 								</div>
 							</div>
 						</a>
-						<a href="/deadend" className="flight-book">
+						<a href="/illustrative" className="flight-book">
 							<div className="plane-name">
 								<span className="p-flight">China Airways</span>
 							</div>

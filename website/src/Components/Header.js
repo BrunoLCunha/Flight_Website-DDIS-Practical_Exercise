@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 import firebase from 'firebase';
 
 class Header extends Component {
@@ -6,7 +7,8 @@ class Header extends Component {
         super(props)
 
         this.state = {
-            login: true
+            login: true,
+            show: false
         }
     }
 
@@ -19,7 +21,9 @@ class Header extends Component {
 			} else {
 				// No user is signed in.
 				console.log('There is no logged in user');
-			}})
+            }
+            that.setState({show: true})
+        })
     }
 
     logout() {
@@ -47,12 +51,16 @@ class Header extends Component {
                                 <li><a href="/blog">Blog</a></li>
                                 <li><a href="/cart">Carrinho</a></li>
                                 <li><a href="/contact">Sobre</a></li>
+                                <li>
                                 {
+                                    
                                     this.state.login ?
-                                        <li><a href="/login">Login</a></li>
+                                        <a href="/login">Login<span style={{opacity:0}}>x</span></a>
                                     :
-                                        <li><a onClick={this.logout} href="/cart">Logout</a></li>
+                                        <a onClick={this.logout} href="/cart">Logout</a>
+                                    
                                 }
+                                </li>
                             </ul>
                         </nav>
                     </div>
